@@ -8,7 +8,6 @@ const LoginForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
-    console.table('data :>> ', data);
     dispatch(login(data));
   };
 
