@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // Components
 import Home from '../pages/Home';
 import Products from '../pages/Products';
@@ -8,8 +9,20 @@ import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
 import Nav from '../components/Nav';
+// Actions
+import { loginFromStorage } from '../features/user/userSlice';
 const Main = () => {
-  const loggedIn = useSelector((state) => state.user.loggedIn);
+  let loggedIn = useSelector((state) => state.user.loggedIn);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (!loggedIn) {
+      const userData = localStorage.getItem('currentUser');
+      if (userData) {
+        const { user, header } = JSON.parse(userData);
+        dispatch(loginFromStorage({ user, header }));
+      }
+    }
+  }, [dispatch, loggedIn]);
   return (
     <>
       <Nav />
