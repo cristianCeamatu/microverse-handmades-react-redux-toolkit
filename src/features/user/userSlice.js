@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const signUp = createAsyncThunk('user/signUp', async () => {
+export const login = createAsyncThunk('user/login', async () => {
   const response = await axios.get(
     'https://bookstore-backend-rails.herokuapp.com/books/'
   );
