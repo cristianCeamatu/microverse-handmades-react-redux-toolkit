@@ -9,7 +9,6 @@ const NewestProducts = () => {
     .slice(0, 4)
     .map((product) => <Product key={product.id} product={product} />);
 
-  console.log('products :>> ', products);
   return (
     <div>
       <h1>Newest Products</h1>

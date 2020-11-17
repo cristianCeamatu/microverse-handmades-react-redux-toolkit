@@ -12,7 +12,6 @@ const FavoritedProducts = () => {
     .slice(0, 4)
     .map((product) => <Product key={product.id} product={product} />);
 
-  console.log('products :>> ', products);
   return (
     <div>
       <h1>Most favorited</h1>
