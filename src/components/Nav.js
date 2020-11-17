@@ -15,15 +15,16 @@ const Nav = () => {
     <div>
       <Link to="/">Home</Link>
       <Link to="/products">Products</Link>
-      <Link to="/dashboard">Dashboard</Link>
       {loggedIn ? (
-        <a href="/" onClick={handleLogout}>
-          Logout
-        </a>
+        <>
+          <Link to="/dashboard">Dashboard</Link>
+          <a href="/" onClick={handleLogout}>
+            Logout
+          </a>
+        </>
       ) : (
         <>
           <Link to="/login">Login</Link>
-          <Link to="/sign_up">Sign up</Link>
         </>
       )}
     </div>
