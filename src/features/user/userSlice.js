@@ -50,7 +50,6 @@ export const userSlice = createSlice({
       state.errors.login = false;
     },
     [login.fulfilled]: (state, action) => {
-      console.log('action.payload.user :>> ', action.payload.user);
       state.user = action.payload.user;
       state.headers = action.payload.header;
       state.loggedIn = true;

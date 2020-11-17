@@ -1,15 +1,19 @@
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+// Components
+import Error from '../../components/Error';
 // Actions
 import { login } from './userSlice';
 
 const LoginForm = () => {
-  // TODO redirect to home page if logged_in
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
     dispatch(login(data));
   };
+
+  const loginLoader = useSelector((state) => state.user.loaders.login);
+  const loginError = useSelector((state) => state.user.errors.login);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -49,7 +53,15 @@ const LoginForm = () => {
         <p>{errors.password && errors.password.message}</p>
       </div>
 
-      <button type="submit">Sign In</button>
+      {loginLoader ? (
+        <button type="submit" disabled aria-disabled>
+          Signing in...
+        </button>
+      ) : (
+        <button type="submit">Sign In</button>
+      )}
+
+      {(loginError && <Error errors={loginError} />) || null}
     </form>
   );
 };
