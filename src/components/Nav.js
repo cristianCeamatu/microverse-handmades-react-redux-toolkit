@@ -8,7 +8,6 @@ const Nav = () => {
   const dispatch = useDispatch();
   const handleLogout = (e) => {
     e.preventDefault();
-    console.log('dispatching logout');
     dispatch(logout());
   };
 
