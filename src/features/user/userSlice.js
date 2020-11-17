@@ -29,7 +29,6 @@ export const login = createAsyncThunk(
 export const signUp = createAsyncThunk(
   'user/signUp',
   async (data, { rejectWithValue }) => {
-    console.log('data :>> ', data);
     try {
       const response = await axios.post(base_uri, data);
       const {

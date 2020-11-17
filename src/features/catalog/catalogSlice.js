@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const base_uri = 'https://handmades-rails-api-backend.herokuapp.com/items';
 export const getProducts = createAsyncThunk('catalog/getProducts', async () => {
-  const response = await axios.get(
-    'https://bookstore-backend-rails.herokuapp.com/books/'
-  );
+  const response = await axios.get(base_uri);
   return response.data;
 });
 
@@ -25,24 +24,22 @@ export const catalogSlice = createSlice({
     },
   },
   extraReducers: {
-    //   [getBooks.pending]: (state) => {
-    //     state.loaders.loadingBooks = true;
-    //     state.errors.loadingBooks = false;
-    //   },
-    //   [getBooks.fulfilled]: (state, action) => {
-    //     state.books = action.payload;
-    //     state.loaders.loadingBooks = false;
-    //     state.errors.loadingBooks = false;
-    //   },
-    //   [getBooks.rejected]: (state, action) => {
-    //     state.errors.loadingBooks = action.error.message;
-    //     state.loaders.loadingBooks = false;
-    //   },
+    [getProducts.pending]: (state) => {
+      state.loaders.loadingProducts = true;
+      state.errors.loadingProducts = false;
+    },
+    [getProducts.fulfilled]: (state, action) => {
+      state.products = action.payload;
+      state.loaders.loadingProducts = false;
+      state.errors.loadingProducts = false;
+    },
+    [getProducts.rejected]: (state, action) => {
+      state.errors.loadingProducts = action.error.message;
+      state.loaders.loadingProducts = false;
+    },
   },
 });
 
 export const { decrement, incrementByAmount } = catalogSlice.actions;
-
-export const selectCount = (state) => state.counter.value;
 
 export default catalogSlice.reducer;
