@@ -1,16 +1,9 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // Components
 import Product from './Product';
 // Actions
-import { getProducts } from './catalogSlice';
 
 const FavoritedProducts = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
-
   const products = useSelector((state) => state.catalog.products);
   const productsItems = [...products]
     .sort(

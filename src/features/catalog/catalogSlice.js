@@ -7,6 +7,12 @@ export const getProducts = createAsyncThunk('catalog/getProducts', async () => {
   return response.data;
 });
 
+export const getProduct = createAsyncThunk('catalog/getProduct', async (id) => {
+  const response = await axios.get(`${base_uri}/${id}`);
+  console.log('response.data :>> ', response.data);
+  return response.data;
+});
+
 export const catalogSlice = createSlice({
   name: 'catalog',
   initialState: {
@@ -14,6 +20,7 @@ export const catalogSlice = createSlice({
     loaders: {},
     errors: {},
     filters: {},
+    product: { user: {} },
   },
   reducers: {
     decrement: (state) => {
@@ -36,6 +43,19 @@ export const catalogSlice = createSlice({
     [getProducts.rejected]: (state, action) => {
       state.errors.loadingProducts = action.error.message;
       state.loaders.loadingProducts = false;
+    },
+    [getProduct.pending]: (state) => {
+      state.loaders.loadingProduct = true;
+      state.errors.loadingProduct = false;
+    },
+    [getProduct.fulfilled]: (state, action) => {
+      state.product = action.payload;
+      state.loaders.loadingProduct = false;
+      state.errors.loadingProduct = false;
+    },
+    [getProduct.rejected]: (state, action) => {
+      state.errors.loadingProduct = action.error.message;
+      state.loaders.loadingProduct = false;
     },
   },
 });
