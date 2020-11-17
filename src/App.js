@@ -1,9 +1,10 @@
-import React from 'react';
+// Components
+import Main from './components';
 const App = () => {
   return (
-    <div>
-      <h1>Hello world!</h1>
-    </div>
+    <>
+      <Main />
+    </>
   );
 };
 
