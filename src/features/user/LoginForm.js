@@ -9,7 +9,7 @@ const LoginForm = () => {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
     console.table('data :>> ', data);
-    dispatch(login);
+    dispatch(login(data));
   };
 
   return (

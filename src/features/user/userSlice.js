@@ -1,12 +1,29 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const login = createAsyncThunk('user/login', async () => {
-  const response = await axios.get(
-    'https://bookstore-backend-rails.herokuapp.com/books/'
-  );
-  return response.data;
-});
+const base_uri =
+  'https://handmades-rails-api-backend.herokuapp.com/api/v1/auth';
+
+export const login = createAsyncThunk(
+  'user/login',
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${base_uri}/sign_in`, data);
+      const {
+        data: { data: user },
+        headers,
+      } = response;
+      const header = {
+        'access-token': headers['access-token'],
+        client: headers.client,
+        uid: headers.uid,
+      };
+      return { user, header };
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
 export const userSlice = createSlice({
   name: 'user',
@@ -26,19 +43,22 @@ export const userSlice = createSlice({
     },
   },
   extraReducers: {
-    //   [getBooks.pending]: (state) => {
-    //     state.loaders.loadingBooks = true;
-    //     state.errors.loadingBooks = false;
-    //   },
-    //   [getBooks.fulfilled]: (state, action) => {
-    //     state.books = action.payload;
-    //     state.loaders.loadingBooks = false;
-    //     state.errors.loadingBooks = false;
-    //   },
-    //   [getBooks.rejected]: (state, action) => {
-    //     state.errors.loadingBooks = action.error.message;
-    //     state.loaders.loadingBooks = false;
-    //   },
+    [login.pending]: (state) => {
+      state.loaders.login = true;
+      state.errors.login = false;
+    },
+    [login.fulfilled]: (state, action) => {
+      console.log('action.payload.user :>> ', action.payload.user);
+      state.user = action.payload.user;
+      state.headers = action.payload.header;
+      state.loggedIn = true;
+      state.loaders.login = false;
+      state.errors.login = false;
+    },
+    [login.rejected]: (state, action) => {
+      state.errors.login = action.payload.errors;
+      state.loaders.login = false;
+    },
   },
 });
 
