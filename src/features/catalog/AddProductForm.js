@@ -17,7 +17,6 @@ const AddProductForm = () => {
   const headers = useSelector((state) => state.user.headers);
   const loading = useSelector((state) => state.catalog.loaders.addProduct);
   const error = useSelector((state) => state.catalog.errors.addProduct);
-
   return (
     <div>
       <h3>Add product</h3>
@@ -28,10 +27,10 @@ const AddProductForm = () => {
             name="name"
             placeholder="Name"
             ref={register({
-              required: {
-                value: true,
-                message: 'This field is mandatory',
-              },
+              // required: {
+              //   value: true,
+              //   message: 'This field is mandatory',
+              // },
               minLength: {
                 value: 2,
                 message: 'Minimum 2 characters',

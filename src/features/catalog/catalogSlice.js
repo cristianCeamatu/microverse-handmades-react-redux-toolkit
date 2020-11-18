@@ -15,9 +15,13 @@ export const getProduct = createAsyncThunk('catalog/getProduct', async (id) => {
 
 export const addProduct = createAsyncThunk(
   'catalog/addProduct',
-  async ({ data, headers }) => {
-    const response = await axios.post(base_uri, data, { headers });
-    return response.data;
+  async ({ data, headers }, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(base_uri, data, { headers });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
@@ -57,13 +61,25 @@ export const catalogSlice = createSlice({
       state.errors.loadingProduct = false;
     },
     [getProduct.fulfilled]: (state, action) => {
-      state.product = action.payload;
       state.loaders.loadingProduct = false;
       state.errors.loadingProduct = false;
     },
     [getProduct.rejected]: (state, action) => {
       state.errors.loadingProduct = action.error.message;
       state.loaders.loadingProduct = false;
+    },
+    [addProduct.pending]: (state) => {
+      state.loaders.addProduct = true;
+      state.errors.addProduct = false;
+    },
+    [addProduct.fulfilled]: (state, action) => {
+      state.products.push(action.payload);
+      state.loaders.addProduct = false;
+      state.errors.addProduct = false;
+    },
+    [addProduct.rejected]: (state, action) => {
+      state.errors.addProduct = action.payload;
+      state.loaders.addProduct = false;
     },
   },
 });
