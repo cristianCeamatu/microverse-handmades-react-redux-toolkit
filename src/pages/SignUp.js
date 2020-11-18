@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 // Components
 import SignUpForm from '../features/user/SignUpForm';
 const SignUp = () => (
@@ -10,9 +11,7 @@ const SignUp = () => (
     <SignUpForm />
 
     <footer>
-      <a href="/" onClick={(e) => e.preventDefault()}>
-        Already registered?
-      </a>
+      <Link to="/login">Already registered?</Link>
     </footer>
   </main>
 );
