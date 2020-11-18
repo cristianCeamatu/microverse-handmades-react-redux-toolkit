@@ -61,6 +61,7 @@ export const catalogSlice = createSlice({
       state.errors.loadingProduct = false;
     },
     [getProduct.fulfilled]: (state, action) => {
+      state.product = action.payload;
       state.loaders.loadingProduct = false;
       state.errors.loadingProduct = false;
     },
