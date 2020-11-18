@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 // Actions
-import { deleteProduct } from './catalogSlice';
+import { deleteProduct, favorite } from './catalogSlice';
 // Utils
 import { formatDate } from '../../utils/date';
 
@@ -10,14 +10,23 @@ const Product = ({ product }) => {
   // State
   const currentUser = useSelector((state) => state.user.user);
   const headers = useSelector((state) => state.user.headers);
-  const loading = useSelector((state) => state.catalog.loaders.deleteProduct);
-  const error = useSelector((state) => state.catalog.errors.deleteProduct);
+  const deleteLoading = useSelector(
+    (state) => state.catalog.loaders.deleteProduct
+  );
+  const deleteError = useSelector(
+    (state) => state.catalog.errors.deleteProduct
+  );
+  const favoriteLoading = useSelector(
+    (state) => state.catalog.loaders.favorite
+  );
+  const favoriteError = useSelector((state) => state.catalog.errors.favorite);
   const {
     id,
     name,
     description,
     price,
     usedFor,
+    favorited_by: favoritedBy,
     created_at: createdAt,
     updated_at: updatedAt,
     ratings,
@@ -30,27 +39,42 @@ const Product = ({ product }) => {
     e.preventDefault();
     dispatch(deleteProduct({ id, headers }));
   };
+  const handleFavorite = (e) => {
+    e.preventDefault();
+    dispatch(favorite({ id, type, currentUser, headers }));
+  };
+
+  // Utils
   const createdDate = formatDate(createdAt);
   const updatedDate = formatDate(updatedAt);
+  const isFavorited = favoritedBy.some((user) => user.id === currentUser.id);
+  const type = isFavorited ? 'unfavorite' : 'favorite';
   return (
     <div>
-      {error ? <p>{error}</p> : null}
+      {deleteError ? <p>{deleteError}</p> : null}
       {currentUser.id === user.id ? (
         <div>
           <button
             type="button"
             onClick={handleDelete}
-            disabled={loading && loading === id}
+            disabled={deleteLoading && deleteLoading === id}
           >
             X
           </button>
           {/* <button type="button">Edit</button> */}
         </div>
       ) : null}
+      <button
+        type="button"
+        onClick={handleFavorite}
+        disabled={favoriteLoading && favoriteLoading === id}
+      >
+        {isFavorited ? '♥' : '💓'}
+      </button>
       <ul>
         <li>{name}</li>
         <li>{description}</li>
-        <li>{price}</li>
+        <li>{(+price).toFixed(2)}</li>
         <li>{usedFor}</li>
         {ratings ? <li>{ratings.join('-')}</li> : null}
         <li>By {user.name}</li>

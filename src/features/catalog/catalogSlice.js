@@ -35,6 +35,20 @@ export const deleteProduct = createAsyncThunk(
   }
 );
 
+export const favorite = createAsyncThunk(
+  'catalog/favorite',
+  async ({ id, type, currentUser, headers }) => {
+    console.log('type :>> ', type);
+    const response = await axios.put(
+      `${base_uri}/${id}/favorite`,
+      { type },
+      { headers }
+    );
+    console.log('response.data :>> ', response.data);
+    return { id, type, currentUser };
+  }
+);
+
 export const catalogSlice = createSlice({
   name: 'catalog',
   initialState: {
@@ -108,6 +122,31 @@ export const catalogSlice = createSlice({
     [deleteProduct.rejected]: (state, action) => {
       state.errors.deleteProduct = action.payload;
       state.loaders.deleteProduct = false;
+    },
+    [favorite.pending]: (state, action) => {
+      state.loaders.favorite = action.meta.arg.id;
+      state.errors.favorite = false;
+    },
+    [favorite.fulfilled]: (state, action) => {
+      const { id, type, currentUser } = action.payload;
+      state.products.map((product) => {
+        if (product.id === id) {
+          type === 'favorite'
+            ? product.favorited_by.push(currentUser)
+            : (product.favorited_by = product.favorited_by.filter(
+                (favorite) => favorite.id !== currentUser.id
+              ));
+
+          return product;
+        }
+        return product;
+      });
+      state.loaders.favorite = false;
+      state.errors.favorite = false;
+    },
+    [favorite.rejected]: (state, action) => {
+      state.errors.favorite = action.payload;
+      state.loaders.favorite = false;
     },
   },
 });
