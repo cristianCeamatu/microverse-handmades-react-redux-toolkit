@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 // Actions
 import { deleteProduct } from './catalogSlice';
+// Utils
+import { formatDate } from '../../utils/date';
 
 const Product = ({ product }) => {
   // State
@@ -10,7 +12,17 @@ const Product = ({ product }) => {
   const headers = useSelector((state) => state.user.headers);
   const loading = useSelector((state) => state.catalog.loaders.deleteProduct);
   const error = useSelector((state) => state.catalog.errors.deleteProduct);
-  const { id, name, description, price, usedFor, ratings, user } = product;
+  const {
+    id,
+    name,
+    description,
+    price,
+    usedFor,
+    created_at: createdAt,
+    updated_at: updatedAt,
+    ratings,
+    user,
+  } = product;
 
   // Effects
   const dispatch = useDispatch();
@@ -18,7 +30,8 @@ const Product = ({ product }) => {
     e.preventDefault();
     dispatch(deleteProduct({ id, headers }));
   };
-
+  const createdDate = formatDate(createdAt);
+  const updatedDate = formatDate(updatedAt);
   return (
     <div>
       {error ? <p>{error}</p> : null}
@@ -31,7 +44,7 @@ const Product = ({ product }) => {
           >
             X
           </button>
-          <button type="button">Edit</button>
+          {/* <button type="button">Edit</button> */}
         </div>
       ) : null}
       <ul>
@@ -41,6 +54,8 @@ const Product = ({ product }) => {
         <li>{usedFor}</li>
         {ratings ? <li>{ratings.join('-')}</li> : null}
         <li>By {user.name}</li>
+        {updatedDate !== createdDate ? <li>Updated {updatedDate}</li> : null}
+        <li>Added {createdDate}</li>
         <li>
           <Link to={`/products/${id}`}>More details</Link>
         </li>

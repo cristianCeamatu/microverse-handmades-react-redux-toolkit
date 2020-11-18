@@ -58,7 +58,9 @@ export const catalogSlice = createSlice({
       state.errors.loadingProducts = false;
     },
     [getProducts.fulfilled]: (state, action) => {
-      state.products = action.payload;
+      state.products = action.payload.sort(
+        (a, b) => new Date(b.updated_at) - new Date(a.updated_at)
+      );
       state.loaders.loadingProducts = false;
       state.errors.loadingProducts = false;
     },

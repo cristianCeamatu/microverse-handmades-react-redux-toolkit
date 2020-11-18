@@ -8,7 +8,6 @@ const FavoritedProducts = () => {
   const currentUser = useSelector((state) => state.user.user);
   const productItems = [...products]
     .filter((product) => product.user_id === currentUser.id)
-    .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
     .map((product) => <Product key={product.id} product={product} />);
 
   return (
