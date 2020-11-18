@@ -93,6 +93,9 @@ export const catalogSlice = createSlice({
     },
     [addProduct.fulfilled]: (state, action) => {
       state.products.push(action.payload);
+      state.products.sort(
+        (a, b) => new Date(b.created_at) - new Date(a.created_at)
+      );
       state.loaders.addProduct = false;
       state.errors.addProduct = false;
     },
