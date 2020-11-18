@@ -18,7 +18,6 @@ export const addProduct = createAsyncThunk(
   async ({ data, headers }, { rejectWithValue }) => {
     try {
       const response = await axios.post(base_uri, data, { headers });
-      console.log('response.data :>> ', response.data);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -30,7 +29,6 @@ export const deleteProduct = createAsyncThunk(
   'catalog/deleteProduct',
   async ({ id, headers }) => {
     const response = await axios.delete(`${base_uri}/${id}`, { headers });
-    console.log('response.data :>> ', response.data);
     return response.data;
   }
 );
@@ -38,13 +36,7 @@ export const deleteProduct = createAsyncThunk(
 export const favorite = createAsyncThunk(
   'catalog/favorite',
   async ({ id, type, currentUser, headers }) => {
-    console.log('type :>> ', type);
-    const response = await axios.put(
-      `${base_uri}/${id}/favorite`,
-      { type },
-      { headers }
-    );
-    console.log('response.data :>> ', response.data);
+    await axios.put(`${base_uri}/${id}/favorite`, { type }, { headers });
     return { id, type, currentUser };
   }
 );
@@ -56,7 +48,7 @@ export const catalogSlice = createSlice({
     loaders: {},
     errors: {},
     filters: {},
-    product: { user: {} },
+    product: { user: {}, favorited_by: [] },
   },
   reducers: {
     decrement: (state) => {
@@ -73,7 +65,7 @@ export const catalogSlice = createSlice({
     },
     [getProducts.fulfilled]: (state, action) => {
       state.products = action.payload.sort(
-        (a, b) => new Date(b.updated_at) - new Date(a.updated_at)
+        (a, b) => new Date(b.created_at) - new Date(a.created_at)
       );
       state.loaders.loadingProducts = false;
       state.errors.loadingProducts = false;
@@ -116,6 +108,7 @@ export const catalogSlice = createSlice({
       state.products = state.products.filter(
         (product) => product.id !== action.payload.id
       );
+      state.product = { user: {}, favorited_by: [] };
       state.loaders.deleteProduct = false;
       state.errors.deleteProduct = false;
     },
@@ -136,7 +129,7 @@ export const catalogSlice = createSlice({
             : (product.favorited_by = product.favorited_by.filter(
                 (favorite) => favorite.id !== currentUser.id
               ));
-
+          state.product = product;
           return product;
         }
         return product;
@@ -145,7 +138,7 @@ export const catalogSlice = createSlice({
       state.errors.favorite = false;
     },
     [favorite.rejected]: (state, action) => {
-      state.errors.favorite = action.payload;
+      state.errors.favorite = action.error.message;
       state.loaders.favorite = false;
     },
   },

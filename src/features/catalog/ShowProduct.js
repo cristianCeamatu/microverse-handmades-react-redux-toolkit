@@ -2,33 +2,60 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
 // Components
+import FavoriteButton from './FavoriteButton';
 import Loading from '../../components/Loading';
 import Error from '../../components/Error';
+// Utils
+import { formatDate } from '../../utils/date';
 // Actions
 import { getProduct } from './catalogSlice';
+
 const ShowProduct = ({ id }) => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProduct(id));
-  }, [dispatch, id]);
+  // State
   const product = useSelector((state) => state.catalog.product);
   const loading = useSelector((state) => state.catalog.loaders.loadingProduct);
   const error = useSelector((state) => state.catalog.errors.loadingProduct);
 
-  const { name, description, price, usedFor, ratings, user } = product;
+  // Props
+  const {
+    name,
+    description,
+    price,
+    usedFor,
+    ratings,
+    user: creator,
+    created_at: createdAt,
+    updated_at: updatedAt,
+    favorited_by: favoritedBy,
+  } = product;
+
+  // Effects
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProduct(id));
+  }, [dispatch, id]);
+
+  // Utils
+  const createdDate = formatDate(createdAt);
+  const updatedDate = formatDate(updatedAt);
+
   return loading ? (
     <Loading />
   ) : error ? (
     <Error errors={[error]} />
   ) : (
     <div>
+      <FavoriteButton id={+id} favoritedBy={favoritedBy} />
       <ul>
         <li>{name}</li>
         <li>{description}</li>
-        <li>{price}</li>
+        <li>{(+price).toFixed(2)}</li>
         <li>{usedFor}</li>
         {ratings ? <li>{ratings.join('-')}</li> : null}
-        <li>By {user.name}</li>
+        <li>By {creator.name}</li>
+        <li>Likes ({favoritedBy.length})</li>
+        {updatedDate !== createdDate ? <li>Updated {updatedDate}</li> : null}
+        <li>Added {createdDate}</li>
       </ul>
     </div>
   );
