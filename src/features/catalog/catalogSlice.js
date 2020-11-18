@@ -64,9 +64,7 @@ export const catalogSlice = createSlice({
       state.errors.loadingProducts = false;
     },
     [getProducts.fulfilled]: (state, action) => {
-      state.products = action.payload.sort(
-        (a, b) => new Date(b.created_at) - new Date(a.created_at)
-      );
+      state.products = action.payload;
       state.loaders.loadingProducts = false;
       state.errors.loadingProducts = false;
     },
@@ -92,10 +90,7 @@ export const catalogSlice = createSlice({
       state.errors.addProduct = false;
     },
     [addProduct.fulfilled]: (state, action) => {
-      state.products.push(action.payload);
-      state.products.sort(
-        (a, b) => new Date(b.created_at) - new Date(a.created_at)
-      );
+      state.products.unshift(action.payload);
       state.loaders.addProduct = false;
       state.errors.addProduct = false;
     },
