@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 // Components
 import Error from '../../components/Error';
 // Actions
-import { addProduct, getProducts } from './catalogSlice';
+import { addProduct } from './catalogSlice';
 
 const AddProductForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
     dispatch(addProduct({ data, headers }));
-    dispatch(getProducts());
   };
 
   const user = useSelector((state) => state.user.user);
@@ -27,10 +26,10 @@ const AddProductForm = () => {
             name="name"
             placeholder="Name"
             ref={register({
-              // required: {
-              //   value: true,
-              //   message: 'This field is mandatory',
-              // },
+              required: {
+                value: true,
+                message: 'This field is mandatory',
+              },
               minLength: {
                 value: 2,
                 message: 'Minimum 2 characters',
