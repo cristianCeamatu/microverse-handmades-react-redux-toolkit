@@ -12,6 +12,7 @@ import { getProduct } from './catalogSlice';
 
 const ShowProduct = ({ id }) => {
   // State
+  const currentUser = useSelector((state) => state.user.user);
   const product = useSelector((state) => state.catalog.product);
   const loading = useSelector((state) => state.catalog.loaders.loadingProduct);
   const error = useSelector((state) => state.catalog.errors.loadingProduct);
@@ -45,7 +46,9 @@ const ShowProduct = ({ id }) => {
     <Error errors={[error]} />
   ) : (
     <div>
-      <FavoriteButton id={+id} favoritedBy={favoritedBy} />
+      {currentUser.id ? (
+        <FavoriteButton id={+id} favoritedBy={favoritedBy} />
+      ) : null}
       <ul>
         <li>{name}</li>
         <li>{description}</li>

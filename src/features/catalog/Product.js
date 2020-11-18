@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 // Components
 import FavoriteButton from './FavoriteButton';
 import DeleteButton from './DeleteButton';
@@ -7,6 +8,9 @@ import DeleteButton from './DeleteButton';
 import { formatDate } from '../../utils/date';
 
 const Product = ({ product }) => {
+  // State
+  const currentUser = useSelector((state) => state.user.user);
+
   // Props
   const {
     id,
@@ -27,7 +31,9 @@ const Product = ({ product }) => {
   return (
     <div>
       <DeleteButton id={id} creator={creator} />
-      <FavoriteButton id={id} favoritedBy={favoritedBy} />
+      {currentUser.id ? (
+        <FavoriteButton id={+id} favoritedBy={favoritedBy} />
+      ) : null}
       <ul>
         <li>{name}</li>
         <li>{description}</li>
