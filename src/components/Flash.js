@@ -12,11 +12,13 @@ export const Flash = () => {
 
   // Effects
   useEffect(() => {
+    let timer;
     Bus.addListener('flash', ({ message, type }) => {
       setVisibility(true);
       setMessage(message);
       setType(type);
-      setTimeout(() => {
+      clearInterval(timer);
+      timer = setTimeout(() => {
         setVisibility(false);
       }, 4000);
     });
