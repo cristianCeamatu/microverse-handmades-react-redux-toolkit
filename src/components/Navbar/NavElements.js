@@ -3,67 +3,55 @@ import { Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
   background-color: gray;
-  font-size: 1rem;
-  margin-top: -80px;
-  height: 80px;
-  position: sticky;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  padding: 3px;
   top: 0;
   text-transform: uppercase;
   z-index: 10;
   font-weight: bold;
-
-  @media screen and (max-width: 960px) {
-    transition: 0.8s all ease-in-out;
-  }
 `;
 
 export const NavContainer = styled.div`
   max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
-  height: 80px;
+  padding: 0 0.625rem;
   z-index: 1;
 `;
 
 export const NavLogo = styled(Link)`
   width: 100px;
-  justify-self: flex-start;
-  cursor: pointer;
   display: flex;
   align-items: center;
-  margin-left: 24px;
-  img {
-    max-width: 100%;
-  }
 `;
 
 export const NavMenu = styled.ul`
   display: flex;
   align-items: center;
   text-align: center;
-  margin-right: -22px;
+  display: none;
 
-  @media screen and (max-width: 768px) {
-    display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
   }
-`;
-
-export const NavItem = styled.li`
-  height: 80px;
 `;
 
 export const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   color: #fff;
-  padding: 0 1rem;
-  height: 100%;
-  cursor: pointer;
+  padding: 0 0.6rem;
+  font-size: 0.825rem;
+`;
 
-  &.active {
-    border-bottom: 3px solid rgba(233, 84, 6, 0.8);
+export const DownloadLink = styled(NavLink)`
+  @media screen and (max-width: 600px) {
+    display: none;
   }
 `;
 
@@ -73,19 +61,25 @@ export const SpecialLink = styled.span`
   padding: 0.3rem 1.5rem;
   align-self: center;
   justify-content: center;
+  font-size: 0.825rem;
 `;
 
 export const MobileIcon = styled.div`
-  display: none;
+  display: flex;
+  align-items: center;
+  padding: 2px 5px;
 
-  @media screen and (max-width: 768px) {
-    display: block;
-    color: #fff;
-    /* position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%); */
-    font-size: 1.8rem;
-    cursor: pointer;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const ProfileAvatar = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+
+  img {
+    border-radius: 50%;
   }
 `;
