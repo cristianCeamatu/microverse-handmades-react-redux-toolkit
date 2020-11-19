@@ -6,7 +6,6 @@ import { deleteProduct } from './catalogSlice';
 const DeleteButton = ({ id, userId }) => {
   // State
   const currentUser = useSelector((state) => state.user.user);
-  const headers = useSelector((state) => state.user.headers);
   const deleteLoading = useSelector(
     (state) => state.catalog.loaders.deleteProduct
   );
@@ -18,7 +17,7 @@ const DeleteButton = ({ id, userId }) => {
   const dispatch = useDispatch();
   const handleDelete = (e) => {
     e.preventDefault();
-    dispatch(deleteProduct({ id, headers }));
+    dispatch(deleteProduct(id));
   };
 
   return (

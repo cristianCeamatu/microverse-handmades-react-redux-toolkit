@@ -1,5 +1,6 @@
-import ShowProduct from '../features/catalog/ShowProduct';
 import PropTypes from 'prop-types';
+// Components
+import ShowProduct from '../features/catalog/ShowProduct';
 
 const ProductDetails = ({ match }) => {
   const { id } = match.params;

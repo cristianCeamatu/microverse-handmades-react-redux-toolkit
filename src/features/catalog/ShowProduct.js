@@ -24,8 +24,7 @@ const ShowProduct = ({ id }) => {
     price,
     usedFor,
     ratings,
-    image,
-    user_id: userId,
+    image_url: imageUrl,
     user_name: userName,
     created_at: createdAt,
     updated_at: updatedAt,
@@ -52,6 +51,9 @@ const ShowProduct = ({ id }) => {
         <FavoriteButton id={+id} favoritedBy={favoritedBy} />
       ) : null}
       <ul>
+        <li>
+          <img src={imageUrl} alt="Product" />
+        </li>
         <li>{name}</li>
         <li>{description}</li>
         <li>{(+price).toFixed(2)}</li>

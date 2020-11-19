@@ -6,7 +6,6 @@ import { favorite } from './catalogSlice';
 const FavoriteButton = ({ id, favoritedBy }) => {
   // State
   const currentUser = useSelector((state) => state.user.user);
-  const headers = useSelector((state) => state.user.headers);
   const favoriteLoading = useSelector(
     (state) => state.catalog.loaders.favorite
   );
@@ -16,7 +15,7 @@ const FavoriteButton = ({ id, favoritedBy }) => {
   const dispatch = useDispatch();
   const handleFavorite = (e) => {
     e.preventDefault();
-    dispatch(favorite({ id, type, currentUser, headers }));
+    dispatch(favorite({ id, type, currentUser }));
   };
 
   // Utils

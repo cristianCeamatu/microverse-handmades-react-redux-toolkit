@@ -6,15 +6,16 @@ import Error from '../../components/Error';
 import { login } from './userSlice';
 
 const LoginForm = () => {
+  // State
+  const loginLoader = useSelector((state) => state.user.loaders.login);
+  const loginError = useSelector((state) => state.user.errors.login);
+  // Effects
   const dispatch = useDispatch();
   const { register, handleSubmit, errors, reset } = useForm();
   const onSubmit = (data) => {
     dispatch(login(data));
     reset();
   };
-
-  const loginLoader = useSelector((state) => state.user.loaders.login);
-  const loginError = useSelector((state) => state.user.errors.login);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">

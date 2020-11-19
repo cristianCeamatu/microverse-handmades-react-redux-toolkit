@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import Bus from '../utils/Bus';
 // Components
 import Home from '../pages/Home';
 import Products from '../pages/Products';
@@ -8,8 +9,9 @@ import ProductDetails from '../pages/ProductDetails';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
-import Nav from '../components/Nav';
-import Error from '../components/Error';
+import Nav from './Nav';
+import Error from './Error';
+import Flash from './Flash';
 // Actions
 import { loginFromStorage } from '../features/user/userSlice';
 import { getProducts } from '../features/catalog/catalogSlice';
@@ -24,8 +26,8 @@ const Main = () => {
     if (!loggedIn) {
       const userData = localStorage.getItem('currentUser');
       if (userData) {
-        const { user, header } = JSON.parse(userData);
-        dispatch(loginFromStorage({ user, header }));
+        const { user } = JSON.parse(userData);
+        dispatch(loginFromStorage(user));
       }
     }
   }, [dispatch, loggedIn]);
@@ -33,9 +35,14 @@ const Main = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
+
+  window.flash = (message, type = 'success') =>
+    Bus.emit('flash', { message, type });
+
   return (
     <>
       <Nav />
+      <Flash />
       {error ? (
         <Error errors={`${error}. Please contact the administrator.`} />
       ) : (

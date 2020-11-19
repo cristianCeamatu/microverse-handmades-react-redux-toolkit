@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 // Components
 import Product from './Product';
-// Actions
 
 const NewestProducts = () => {
   const products = useSelector((state) => state.catalog.products);

@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
 // Components
 import Product from './Product';
-// Actions
 
 const UserFavorites = () => {
+  // State
   const products = useSelector((state) => state.catalog.products);
   const currentUser = useSelector((state) => state.user.user);
+  // Utils
   const productItems = [...products]
     .filter((product) =>
       product.favorited_by.some((favorite) => favorite.id === currentUser.id)

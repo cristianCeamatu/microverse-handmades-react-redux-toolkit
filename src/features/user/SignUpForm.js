@@ -6,14 +6,16 @@ import Error from '../../components/Error';
 import { signUp } from './userSlice';
 
 const SignUpForm = () => {
+  // State
+  const signUpLoader = useSelector((state) => state.user.loaders.signUp);
+  const signUpError = useSelector((state) => state.user.errors.signUp);
+
+  // Effects
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
     dispatch(signUp(data));
   };
-
-  const signUpLoader = useSelector((state) => state.user.loaders.signUp);
-  const signUpError = useSelector((state) => state.user.errors.signUp);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} encType="multipart/formdata">

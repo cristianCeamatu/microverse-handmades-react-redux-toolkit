@@ -10,7 +10,6 @@ import { formatDate } from '../../utils/date';
 const Product = ({ product }) => {
   // State
   const currentUser = useSelector((state) => state.user.user);
-
   // Props
   const {
     id,
@@ -26,7 +25,6 @@ const Product = ({ product }) => {
     image_url: imageUrl,
     ratings,
   } = product;
-
   // Utils
   const createdDate = formatDate(createdAt);
   const updatedDate = formatDate(updatedAt);

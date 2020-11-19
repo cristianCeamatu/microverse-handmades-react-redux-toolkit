@@ -6,6 +6,12 @@ import Error from '../../components/Error';
 import { addProduct } from './catalogSlice';
 
 const AddProductForm = () => {
+  // State
+  const user = useSelector((state) => state.user.user);
+  const loading = useSelector((state) => state.catalog.loaders.addProduct);
+  const error = useSelector((state) => state.catalog.errors.addProduct);
+
+  // Effects
   const dispatch = useDispatch();
   const { register, handleSubmit, reset, errors } = useForm();
   const onSubmit = (data) => {
@@ -17,14 +23,8 @@ const AddProductForm = () => {
     formData.append('user_id', data.user_id);
     formData.append('image', data.image[0]);
 
-    // formData.append('item', data.item);
-    dispatch(addProduct({ formData, headers }));
+    dispatch(addProduct(formData));
   };
-
-  const user = useSelector((state) => state.user.user);
-  const headers = useSelector((state) => state.user.headers);
-  const loading = useSelector((state) => state.catalog.loaders.addProduct);
-  const error = useSelector((state) => state.catalog.errors.addProduct);
   return (
     <div>
       <h3>Add product</h3>

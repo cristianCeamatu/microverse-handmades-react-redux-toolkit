@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 // Components
 import SignUpForm from '../features/user/SignUpForm';
+
 const SignUp = () => (
   <main>
     <header>

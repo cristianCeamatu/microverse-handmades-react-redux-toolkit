@@ -20,6 +20,8 @@ export const login = createAsyncThunk(
         uid: headers.uid,
       };
       localStorage.setItem('currentUser', JSON.stringify({ user, header }));
+      window.flash(`Welcome ${user.name}!`);
+
       return { user, header };
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -42,6 +44,8 @@ export const signUp = createAsyncThunk(
         uid: headers.uid,
       };
       localStorage.setItem('currentUser', JSON.stringify({ user, header }));
+      window.flash(`Congratulations ${user.name}!`);
+
       return { user, header };
     } catch (error) {
       return rejectWithValue(error.response.data.errors.full_messages);
@@ -55,19 +59,18 @@ export const userSlice = createSlice({
     user: {},
     loaders: {},
     errors: {},
-    headers: {},
     loggedIn: false,
   },
   reducers: {
     logout: (state) => {
       localStorage.removeItem('currentUser');
+      window.flash(`have a nice day ${state.user.name}!`);
       state.user = {};
       state.headers = {};
       state.loggedIn = false;
     },
     loginFromStorage: (state, action) => {
-      state.user = action.payload.user;
-      state.headers = action.payload.header;
+      state.user = action.payload;
       state.loggedIn = true;
     },
   },
@@ -78,7 +81,6 @@ export const userSlice = createSlice({
     },
     [login.fulfilled]: (state, action) => {
       state.user = action.payload.user;
-      state.headers = action.payload.header;
       state.loggedIn = true;
       state.loaders.login = false;
       state.errors.login = false;
@@ -93,7 +95,6 @@ export const userSlice = createSlice({
     },
     [signUp.fulfilled]: (state, action) => {
       state.user = action.payload.user;
-      state.headers = action.payload.header;
       state.loggedIn = true;
       state.loaders.signUp = false;
       state.errors.signUp = false;

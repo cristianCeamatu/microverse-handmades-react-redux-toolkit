@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 // Actions
 import { logout } from '../features/user/userSlice';
 const Nav = () => {
+  // State
   const loggedIn = useSelector((state) => state.user.loggedIn);
-
+  // Effects
   const dispatch = useDispatch();
   const handleLogout = (e) => {
     e.preventDefault();

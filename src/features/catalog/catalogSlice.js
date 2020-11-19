@@ -16,14 +16,18 @@ export const getProduct = createAsyncThunk('catalog/getProduct', async (id) => {
 
 export const addProduct = createAsyncThunk(
   'catalog/addProduct',
-  async ({ formData, headers }, { rejectWithValue }) => {
-    console.log('formData :>> ', formData);
+  async (formData, { rejectWithValue }) => {
     try {
+      const { header: headers } = JSON.parse(
+        localStorage.getItem('currentUser')
+      );
       const response = await axios.post(base_uri, formData, headers);
-      console.log('response.data :>> ', response.data);
+      window.flash(`Product ${response.data.name} added!`);
+
       return response.data;
     } catch (error) {
-      console.log('error :>> ', error);
+      window.flash(`Please check the form errors!`, 'error');
+
       return rejectWithValue(error.response.data);
     }
   }
@@ -31,16 +35,24 @@ export const addProduct = createAsyncThunk(
 
 export const deleteProduct = createAsyncThunk(
   'catalog/deleteProduct',
-  async ({ id, headers }) => {
+  async (id) => {
+    const { header: headers } = JSON.parse(localStorage.getItem('currentUser'));
     const response = await axios.delete(`${base_uri}/${id}`, { headers });
+    window.flash(`Product ${response.data.name} deleted!`);
     return response.data;
   }
 );
 
 export const favorite = createAsyncThunk(
   'catalog/favorite',
-  async ({ id, type, currentUser, headers }) => {
+  async ({ id, type, currentUser }) => {
+    const { header: headers } = JSON.parse(localStorage.getItem('currentUser'));
     await axios.put(`${base_uri}/${id}/favorite`, { type }, { headers });
+    const message =
+      type === 'favorite'
+        ? 'Product added to favorites'
+        : 'Product removed from favorites';
+    window.flash(message);
     return { id, type, currentUser };
   }
 );
