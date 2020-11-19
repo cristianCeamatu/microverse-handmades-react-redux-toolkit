@@ -17,7 +17,7 @@ export const Flash = () => {
       setVisibility(true);
       setMessage(message);
       setType(type);
-      clearInterval(timer);
+      clearTimeout(timer);
       timer = setTimeout(() => {
         setVisibility(false);
       }, 4000);
