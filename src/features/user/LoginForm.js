@@ -10,7 +10,7 @@ const LoginForm = () => {
   const { register, handleSubmit, errors, reset } = useForm();
   const onSubmit = (data) => {
     dispatch(login(data));
-    reset(data);
+    reset();
   };
 
   const loginLoader = useSelector((state) => state.user.loaders.login);

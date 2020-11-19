@@ -24,7 +24,9 @@ const ShowProduct = ({ id }) => {
     price,
     usedFor,
     ratings,
-    user: creator,
+    image,
+    user_id: userId,
+    user_name: userName,
     created_at: createdAt,
     updated_at: updatedAt,
     favorited_by: favoritedBy,
@@ -55,7 +57,7 @@ const ShowProduct = ({ id }) => {
         <li>{(+price).toFixed(2)}</li>
         <li>{usedFor}</li>
         {ratings ? <li>{ratings.join('-')}</li> : null}
-        <li>By {creator.name}</li>
+        <li>By {userName}</li>
         <li>Likes ({favoritedBy.length})</li>
         {updatedDate !== createdDate ? <li>Updated {updatedDate}</li> : null}
         <li>Added {createdDate}</li>

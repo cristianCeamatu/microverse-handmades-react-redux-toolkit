@@ -9,8 +9,6 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
-    console.log('dispatching sign up');
-    console.log('data :>> ', data);
     dispatch(signUp(data));
   };
 
@@ -18,7 +16,7 @@ const SignUpForm = () => {
   const signUpError = useSelector((state) => state.user.errors.signUp);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} encType="multipart/formdata">
       <div>
         <input
           name="email"

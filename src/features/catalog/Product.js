@@ -21,26 +21,32 @@ const Product = ({ product }) => {
     favorited_by: favoritedBy,
     created_at: createdAt,
     updated_at: updatedAt,
-    user: creator,
+    user_id: userId,
+    user_name: userName,
+    image_url: imageUrl,
     ratings,
   } = product;
 
   // Utils
   const createdDate = formatDate(createdAt);
   const updatedDate = formatDate(updatedAt);
+
   return (
     <div>
-      <DeleteButton id={id} creator={creator} />
+      <DeleteButton id={id} userId={userId} />
       {currentUser.id ? (
         <FavoriteButton id={+id} favoritedBy={favoritedBy} />
       ) : null}
       <ul>
+        <li>
+          <img src={imageUrl} alt="Product" />
+        </li>
         <li>{name}</li>
         <li>{description}</li>
         <li>{(+price).toFixed(2)}</li>
         <li>{usedFor}</li>
         {ratings ? <li>{ratings.join('-')}</li> : null}
-        <li>By {creator.name}</li>
+        <li>By {userName}</li>
         <li>Likes ({favoritedBy.length})</li>
         {updatedDate !== createdDate ? <li>Updated {updatedDate}</li> : null}
         <li>Added {createdDate}</li>

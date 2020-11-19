@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const base_uri = 'https://handmades-rails-api-backend.herokuapp.com/items';
+// const base_uri = 'http://localhost:3000/items';
 
 export const getProducts = createAsyncThunk('catalog/getProducts', async () => {
   const response = await axios.get(base_uri);
@@ -15,11 +16,14 @@ export const getProduct = createAsyncThunk('catalog/getProduct', async (id) => {
 
 export const addProduct = createAsyncThunk(
   'catalog/addProduct',
-  async ({ data, headers }, { rejectWithValue }) => {
+  async ({ formData, headers }, { rejectWithValue }) => {
+    console.log('formData :>> ', formData);
     try {
-      const response = await axios.post(base_uri, data, { headers });
+      const response = await axios.post(base_uri, formData, headers);
+      console.log('response.data :>> ', response.data);
       return response.data;
     } catch (error) {
+      console.log('error :>> ', error);
       return rejectWithValue(error.response.data);
     }
   }

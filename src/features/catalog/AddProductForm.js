@@ -7,9 +7,18 @@ import { addProduct } from './catalogSlice';
 
 const AddProductForm = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, reset, errors } = useForm();
   const onSubmit = (data) => {
-    dispatch(addProduct({ data, headers }));
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('description', data.description);
+    formData.append('price', data.price);
+    formData.append('usedFor', data.usedFor);
+    formData.append('user_id', data.user_id);
+    formData.append('image', data.image[0]);
+
+    // formData.append('item', data.item);
+    dispatch(addProduct({ formData, headers }));
   };
 
   const user = useSelector((state) => state.user.user);
@@ -107,6 +116,22 @@ const AddProductForm = () => {
             })}
           />
           <p>{errors.usedFor && errors.usedFor.message}</p>
+        </div>
+        <div>
+          <label htmlFor="image">
+            <input
+              type="file"
+              name="image"
+              accept="image/*"
+              ref={register({
+                required: {
+                  value: true,
+                  message: 'This field is mandatory',
+                },
+              })}
+            />
+            <p>{errors.image && errors.image.message}</p>
+          </label>
         </div>
         <div>
           <input

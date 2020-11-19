@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const base_uri =
   'https://handmades-rails-api-backend.herokuapp.com/api/v1/auth';
+// const base_uri = 'http://localhost:3000/api/v1/auth';
 
 export const login = createAsyncThunk(
   'user/login',
