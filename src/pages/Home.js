@@ -17,8 +17,8 @@ const Home = () => {
   ) : (
     <div>
       <h1>Home</h1>
-      <NewestProducts />
       <FavoritedProducts />
+      <NewestProducts />
     </div>
   );
 };
