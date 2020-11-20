@@ -13,6 +13,7 @@ export const HeroContainer = styled.section`
   position: relative;
   z-index: 1;
 `;
+
 export const HeroBg = styled.div`
   position: absolute;
   top: 0;
@@ -21,7 +22,7 @@ export const HeroBg = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: red;
+  background: #fafafa;
   overflow: hidden;
 `;
 export const VideoBg = styled.video`
@@ -29,6 +30,10 @@ export const VideoBg = styled.video`
   height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+
+  @media screen and (min-width: 568px) {
+    object-position: center 74%;
+  }
 `;
 
 export const HeroContent = styled.div`
