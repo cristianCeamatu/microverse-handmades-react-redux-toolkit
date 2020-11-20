@@ -7,6 +7,7 @@ import {
   HeroContent,
   Button,
   VideoLink,
+  DownArrow,
 } from './HeroSection.styled';
 // Utils
 import video from '../../assets/video1.mp4';
@@ -35,6 +36,7 @@ const HeroSection = () => {
           </VideoLink>
         </div>
       </HeroContent>
+      <DownArrow />
     </HeroContainer>
   );
 };
