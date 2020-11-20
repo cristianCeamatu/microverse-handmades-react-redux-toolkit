@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Error from '../../components/Error';
 // Actions
 import { login } from './userSlice';
+// Styles
+import { Form } from './Styles';
 
 const LoginForm = () => {
   // State
@@ -18,7 +20,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+    <Form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <div>
         <input
           name="email"
@@ -68,7 +70,7 @@ const LoginForm = () => {
       )}
 
       {(loginError && <Error errors={loginError} />) || null}
-    </form>
+    </Form>
   );
 };
 

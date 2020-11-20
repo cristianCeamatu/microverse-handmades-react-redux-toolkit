@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 
 export const HeroContainer = styled.section`
-  max-width: 1100px;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
