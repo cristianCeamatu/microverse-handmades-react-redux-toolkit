@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 // Actions
 import { logout } from '../../features/user/userSlice';
 // Styles
@@ -15,7 +16,7 @@ import {
 // Assets
 import logo from '../../assets/logo.png';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, toggle }) => {
   // State
   const loggedIn = useSelector((state) => state.user.loggedIn);
   const user = useSelector((state) => state.user.user);
@@ -31,7 +32,7 @@ const Sidebar = () => {
   const { name, nickname } = user;
 
   return (
-    <SidebarContainer>
+    <SidebarContainer isOpen={isOpen} onClick={toggle}>
       {loggedIn ? (
         <>
           <SidebarProfile>
@@ -100,6 +101,11 @@ const Sidebar = () => {
       </SidebarLogo>
     </SidebarContainer>
   );
+};
+
+Sidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggle: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

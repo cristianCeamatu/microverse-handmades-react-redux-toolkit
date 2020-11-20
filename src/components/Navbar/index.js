@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
 import { FaBars, FaSearch } from 'react-icons/fa';
+import PropTypes from 'prop-types';
+
 // Styles
 import {
   Nav,
@@ -15,7 +17,7 @@ import {
 // Assets
 import logo from '../../assets/logo.png';
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   // State
   const loggedIn = useSelector((state) => state.user.loggedIn);
 
@@ -23,7 +25,7 @@ const Navbar = () => {
     <>
       <Nav>
         <NavContainer>
-          <MobileIcon>
+          <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
 
@@ -45,7 +47,7 @@ const Navbar = () => {
                   <NavLink to="/products">Crafts</NavLink>
                 </li>
                 <li>
-                  <ProfileAvatar>
+                  <ProfileAvatar onClick={toggle}>
                     <img
                       src="https://www.w3schools.com/howto/img_avatar.png"
                       alt="Random unsplash img"
@@ -75,6 +77,10 @@ const Navbar = () => {
       </Nav>
     </>
   );
+};
+
+Navbar.propTypes = {
+  toggle: PropTypes.func.isRequired,
 };
 
 export default Navbar;
