@@ -13,7 +13,7 @@ export const Nav = styled.nav`
   text-transform: uppercase;
   z-index: 10;
   font-weight: bold;
-  transition: 0.3s ease-in-out;
+  transition: 0.1s ease-in;
   left: ${({ sidebarIsOpen }) => (sidebarIsOpen ? '270px' : '0')};
 `;
 
