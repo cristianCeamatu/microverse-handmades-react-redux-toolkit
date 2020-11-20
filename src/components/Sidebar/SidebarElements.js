@@ -22,11 +22,17 @@ export const SidebarLogo = styled(Link)`
   display: flex;
   justify-content: center;
   margin: 30px auto 0;
-  max-width: 200px;
+  max-width: 100px;
   padding: 5px;
-  border-radius: 5px;
-  background-color: rgb(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 3px rgb(233, 84, 6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto 0;
+  padding: 5px;
+  max-width: 100px;
+  color: #565656;
+  font-size: 1.8rem;
+  font-weight: bold;
 `;
 export const SidebarProfile = styled.div`
   padding: 25px;

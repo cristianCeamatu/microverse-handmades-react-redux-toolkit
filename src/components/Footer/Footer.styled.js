@@ -28,10 +28,11 @@ export const Container = styled.footer`
 export const Logo = styled(Link)`
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 30px auto 0;
   padding: 5px;
-  border-radius: 5px;
   max-width: 100px;
-  background-color: rgb(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 3px rgb(233, 84, 6);
+  color: #565656;
+  font-size: 1.8rem;
+  font-weight: bold;
 `;

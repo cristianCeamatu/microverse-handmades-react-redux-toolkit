@@ -28,7 +28,7 @@ const Navbar = ({ toggle, sidebarIsOpen }) => {
     const scrolledY = document.scrollingElement.scrollTop;
     if (scrolledY > 80 && !scrolled) {
       setScrolled(true);
-    } else if (scrolledY < 80) {
+    } else if (scrolledY < 80 && scrolled) {
       setScrolled(false);
     }
   });

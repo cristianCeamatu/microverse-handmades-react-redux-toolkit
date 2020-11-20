@@ -70,6 +70,7 @@ const Sidebar = ({ isOpen, toggle }) => {
               <SidebarLink to="/">Statistic</SidebarLink>
             </SidebarItem>
           </SidebarMenu>
+
           <Divider />
           <SidebarMenu>
             <SidebarItem>
@@ -94,7 +95,8 @@ const Sidebar = ({ isOpen, toggle }) => {
         </SidebarMenu>
       )}
       <SidebarLogo to="/">
-        <img src={logo} alt="Company brand logo" width="150" />
+        <img src={logo} alt="Company brand logo" width="50" />
+        Crafts
       </SidebarLogo>
     </SidebarContainer>
   );

@@ -8,7 +8,8 @@ const Footer = () => {
   return (
     <Container>
       <Logo to="/">
-        <img src={logo} alt="Company brand logo" width="150" />
+        <img src={logo} alt="Company brand logo" width="100" />
+        Crafts
       </Logo>
 
       <address>
