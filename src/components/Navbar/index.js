@@ -17,20 +17,20 @@ import {
 // Assets
 import logo from '../../assets/logo.png';
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle, sidebarIsOpen }) => {
   // State
   const loggedIn = useSelector((state) => state.user.loggedIn);
 
   return (
     <>
-      <Nav>
+      <Nav sidebarIsOpen={sidebarIsOpen}>
         <NavContainer>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
 
           <NavLogo to="/">
-            <img src={logo} alt="Company brand logo" />
+            <img src={logo} alt="Company brand logo" width="100" />
           </NavLogo>
 
           <MobileIcon>
@@ -81,6 +81,7 @@ const Navbar = ({ toggle }) => {
 
 Navbar.propTypes = {
   toggle: PropTypes.func.isRequired,
+  sidebarIsOpen: PropTypes.bool.isRequired,
 };
 
 export default Navbar;

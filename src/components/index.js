@@ -47,9 +47,9 @@ const Main = () => {
 
   return (
     <>
+      <Sidebar isOpen={isOpen} toggle={toggle} />
       <MainContainer sidebarIsOpen={isOpen}>
-        <Sidebar isOpen={isOpen} toggle={toggle} />
-        <Navbar toggle={toggle} />
+        <Navbar sidebarIsOpen={isOpen} toggle={toggle} />
         <Flash />
         {error ? (
           <Error errors={`${error}. Please contact the administrator.`} />

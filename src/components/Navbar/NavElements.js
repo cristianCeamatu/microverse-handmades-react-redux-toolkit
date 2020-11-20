@@ -29,7 +29,6 @@ export const NavContainer = styled.div`
 `;
 
 export const NavLogo = styled(Link)`
-  width: 100px;
   display: flex;
   align-items: center;
   padding: 2px;
