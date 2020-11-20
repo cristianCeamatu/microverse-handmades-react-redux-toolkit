@@ -21,6 +21,11 @@ export const DashboardContainer = styled.section`
     }
   }
 
+  .image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
   .image,
   .details {
     padding: 0 30px;
@@ -38,6 +43,20 @@ export const DashboardContainer = styled.section`
       font-size: 0.725rem;
       line-height: 1.3;
       margin-bottom: 10px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 992px;
+      margin: 0 auto;
+    }
+
+    .details {
+      margin-top: 0;
     }
   }
 `;

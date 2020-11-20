@@ -20,12 +20,11 @@ export const Container = styled.section`
   }
 
   .articles {
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
+    max-width: 992px;
+    margin: 0 auto;
 
     article {
-      margin: 0 10px;
+      max-width: 300px;
       padding: 15px 10px;
       border: 1px solid rgba(0, 0, 0, 0.09);
       -webkit-box-shadow: 0px 0px 10px -5px #000000;
@@ -55,6 +54,19 @@ export const Container = styled.section`
         line-height: 1.1;
         font-size: 0.875rem;
         padding: 0 15px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 568px) {
+    .articles {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      article:first-child {
+        margin-bottom: 0;
+        margin-right: 15px;
       }
     }
   }
