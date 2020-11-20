@@ -65,7 +65,6 @@ export const Button = styled(Link)`
   background: rgb(233, 84, 6);
   margin-right: 10px;
   font-size: 0.675rem;
-
   text-shadow: none;
 `;
 export const VideoLink = styled.a`

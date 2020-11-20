@@ -6,6 +6,7 @@ import NewestProducts from '../features/catalog/NewestProducts';
 import FavoritedProducts from '../features/catalog/FavoritedProducts';
 import HeroSection from '../components/HeroSection';
 import DashboardSection from '../components/DashboardSection';
+import DesignerSection from '../components/DesignerSection';
 
 const Home = () => {
   // State
@@ -20,6 +21,7 @@ const Home = () => {
     <div>
       <HeroSection />
       <DashboardSection />
+      <DesignerSection />
       <FavoritedProducts />
       <NewestProducts />
     </div>

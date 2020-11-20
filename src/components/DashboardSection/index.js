@@ -23,7 +23,7 @@ const DashboardSection = () => {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
-        <Button to="/login">Sign up</Button>
+        <Button to="/login">Dashboard</Button>
       </div>
     </DashboardContainer>
   );

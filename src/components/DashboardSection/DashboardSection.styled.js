@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export const DashboardContainer = styled.section`
   margin: 30px 5px;
   text-align: center;
+  background-color: #f8f8f8;
 
   header {
     margin-bottom: 30px;
@@ -22,10 +23,12 @@ export const DashboardContainer = styled.section`
 
   .image,
   .details {
-    padding: 0 60px;
+    padding: 0 30px;
   }
 
   .details {
+    margin-top: 30px;
+
     h3 {
       font-size: 1.3rem;
       margin-bottom: 10px;
@@ -38,11 +41,13 @@ export const DashboardContainer = styled.section`
     }
   }
 `;
+
 export const Button = styled(Link)`
   border-radius: 50px;
   padding: 5px 20px;
   background: rgb(233, 84, 6);
   margin-right: 10px;
-  font-size: 0.675rem;
+  font-size: 0.75rem;
   color: #fff;
+  text-transform: uppercase;
 `;
