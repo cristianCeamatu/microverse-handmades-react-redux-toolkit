@@ -24,6 +24,7 @@ const AddProductForm = () => {
     formData.append('image', data.image[0]);
 
     dispatch(addProduct(formData));
+    reset();
   };
   return (
     <div>
