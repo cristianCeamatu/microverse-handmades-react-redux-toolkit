@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 
-export const HeroContainer = styled.div`
+export const HeroContainer = styled.section`
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
@@ -85,4 +85,9 @@ export const DownArrow = styled(FaChevronDown)`
   right: calc(50% - 20px);
   color: rgba(256, 256, 256, 0.5);
   font-size: 30px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;

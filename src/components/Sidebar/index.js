@@ -76,9 +76,7 @@ const Sidebar = ({ isOpen, toggle }) => {
               <SidebarLink to="/login">Help</SidebarLink>
             </SidebarItem>
             <SidebarItem>
-              <SidebarLink to="/sign_up">
-                <AnchorLink onClick={handleLogout}>Logout</AnchorLink>
-              </SidebarLink>
+              <AnchorLink onClick={handleLogout}>Logout</AnchorLink>
             </SidebarItem>
           </SidebarMenu>
         </>
