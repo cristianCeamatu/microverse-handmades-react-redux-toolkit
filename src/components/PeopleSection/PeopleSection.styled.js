@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  padding: 30px 5px;
+  padding: 60px 5px;
   text-align: center;
 
   .details {

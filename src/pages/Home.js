@@ -7,6 +7,7 @@ import DashboardSection from '../components/DashboardSection';
 import DesignerSection from '../components/DesignerSection';
 import PeopleSection from '../components/PeopleSection';
 import StartFreeSection from '../components/StartFreeSection';
+import Footer from '../components/Footer';
 
 const Home = () => {
   // State
@@ -24,6 +25,7 @@ const Home = () => {
       <DesignerSection />
       <PeopleSection />
       <StartFreeSection />
+      <Footer />
     </div>
   );
 };

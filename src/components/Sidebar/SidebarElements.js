@@ -19,7 +19,8 @@ export const SidebarContainer = styled.aside`
 export const SidebarLogo = styled(Link)`
   display: flex;
   justify-content: center;
-  margin: 30px 10px 0;
+  margin: 30px auto 0;
+  max-width: 200px;
   padding: 5px;
   border-radius: 5px;
   background-color: rgb(0, 0, 0, 0.2);
