@@ -2,12 +2,11 @@ import { useSelector } from 'react-redux';
 // Components
 import Loading from '../components/Loading';
 import Error from '../components/Error';
-import NewestProducts from '../features/catalog/NewestProducts';
-import FavoritedProducts from '../features/catalog/FavoritedProducts';
 import HeroSection from '../components/HeroSection';
 import DashboardSection from '../components/DashboardSection';
 import DesignerSection from '../components/DesignerSection';
 import PeopleSection from '../components/PeopleSection';
+import StartFreeSection from '../components/StartFreeSection';
 
 const Home = () => {
   // State
@@ -24,8 +23,7 @@ const Home = () => {
       <DashboardSection />
       <DesignerSection />
       <PeopleSection />
-      <FavoritedProducts />
-      <NewestProducts />
+      <StartFreeSection />
     </div>
   );
 };
