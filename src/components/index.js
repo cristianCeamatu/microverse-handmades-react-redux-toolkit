@@ -17,7 +17,7 @@ import Sidebar from './Sidebar';
 import { loginFromStorage } from '../features/user/userSlice';
 import { getProducts } from '../features/catalog/catalogSlice';
 // Styles
-import { MainContainer } from './IndexElements.styled';
+import { MainContainer } from './MainContainer.styled';
 const Main = () => {
   // State
   let loggedIn = useSelector((state) => state.user.loggedIn);
@@ -47,8 +47,8 @@ const Main = () => {
 
   return (
     <>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
       <MainContainer sidebarIsOpen={isOpen}>
+        <Sidebar isOpen={isOpen} toggle={toggle} />
         <Navbar toggle={toggle} />
         <Flash />
         {error ? (

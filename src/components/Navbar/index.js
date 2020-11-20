@@ -49,7 +49,7 @@ const Navbar = ({ toggle }) => {
                 <li>
                   <ProfileAvatar onClick={toggle}>
                     <img
-                      src="https://www.w3schools.com/howto/img_avatar.png"
+                      src="http://unsplash.it/30/30?gravity=center"
                       alt="Random unsplash img"
                       width="30"
                       height="30"

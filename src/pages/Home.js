@@ -4,6 +4,7 @@ import Loading from '../components/Loading';
 import Error from '../components/Error';
 import NewestProducts from '../features/catalog/NewestProducts';
 import FavoritedProducts from '../features/catalog/FavoritedProducts';
+import HeroSection from '../components/HeroSection';
 
 const Home = () => {
   // State
@@ -16,7 +17,7 @@ const Home = () => {
     <Error errors={[error]} />
   ) : (
     <div>
-      <h1>Home</h1>
+      <HeroSection />
       <FavoritedProducts />
       <NewestProducts />
     </div>

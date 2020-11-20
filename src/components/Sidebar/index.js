@@ -11,6 +11,7 @@ import {
   SidebarLogo,
   SidebarProfile,
   SpecialLink,
+  AnchorLink,
   Divider,
 } from './SidebarElements';
 // Assets
@@ -76,7 +77,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             </SidebarItem>
             <SidebarItem>
               <SidebarLink to="/sign_up">
-                <SpecialLink onClick={handleLogout}>Logout</SpecialLink>
+                <AnchorLink onClick={handleLogout}>Logout</AnchorLink>
               </SidebarLink>
             </SidebarItem>
           </SidebarMenu>
@@ -87,9 +88,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             <SidebarLink to="/login">Login</SidebarLink>
           </SidebarItem>
           <SidebarItem>
-            <SidebarLink to="/sign_up">
-              <SpecialLink>Sign up</SpecialLink>
-            </SidebarLink>
+            <SpecialLink to="/sign_up">Sign up</SpecialLink>
           </SidebarItem>
           <SidebarItem>
             <SidebarLink to="/">Download Application</SidebarLink>

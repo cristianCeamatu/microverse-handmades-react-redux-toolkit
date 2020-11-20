@@ -44,6 +44,7 @@ export const SidebarProfile = styled.div`
   }
 `;
 export const SidebarMenu = styled.div``;
+
 export const SidebarItem = styled.div`
   padding: 5px 25px;
   cursor: pointer;
@@ -74,9 +75,15 @@ export const Divider = styled.div`
 `;
 export const SidebarLink = styled(Link)`
   font-size: 0.825rem;
+  cursor: pointer;
 `;
-export const SpecialLink = styled(Link)`
-  color: red;
+export const SpecialLink = styled(SidebarLink)`
+  border-radius: 50px;
+  color: rgb(233, 84, 6);
+`;
+
+export const AnchorLink = styled.a`
   font-size: 0.825rem;
+  color: red;
   cursor: pointer;
 `;

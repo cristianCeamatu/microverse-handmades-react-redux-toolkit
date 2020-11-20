@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3);
   position: fixed;
+  color: #fff;
   width: 100%;
   left: 0;
   right: 0;
@@ -12,12 +13,12 @@ export const Nav = styled.nav`
   text-transform: uppercase;
   z-index: 10;
   font-weight: bold;
-  position: relative;
   transition: 0.3s ease-in-out;
   left: ${({ sidebarIsOpen }) => (sidebarIsOpen ? '270px' : '0')};
 `;
 
 export const NavContainer = styled.div`
+  background-color: transparent;
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
@@ -31,6 +32,10 @@ export const NavLogo = styled(Link)`
   width: 100px;
   display: flex;
   align-items: center;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 2px rgb(233, 84, 6);
 `;
 
 export const NavMenu = styled.ul`
