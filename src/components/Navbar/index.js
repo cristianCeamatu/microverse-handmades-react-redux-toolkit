@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FaBars, FaSearch } from 'react-icons/fa';
 import PropTypes from 'prop-types';
@@ -20,17 +21,29 @@ import logo from '../../assets/logo.png';
 const Navbar = ({ toggle, sidebarIsOpen }) => {
   // State
   const loggedIn = useSelector((state) => state.user.loggedIn);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Effects
+  document.addEventListener('scroll', () => {
+    const scrolledY = document.scrollingElement.scrollTop;
+    if (scrolledY > 80 && !scrolled) {
+      setScrolled(true);
+    } else if (scrolledY < 80) {
+      setScrolled(false);
+    }
+  });
 
   return (
     <>
-      <Nav sidebarIsOpen={sidebarIsOpen}>
+      <Nav sidebarIsOpen={sidebarIsOpen} scrolled={scrolled}>
         <NavContainer>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
 
           <NavLogo to="/">
-            <img src={logo} alt="Company brand logo" width="100" />
+            <img src={logo} alt="Company brand logo" width="40" />
+            Crafts
           </NavLogo>
 
           <MobileIcon>

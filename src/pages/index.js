@@ -3,21 +3,21 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Bus from '../utils/Bus';
 // Components
-import Home from '../pages/Home';
-import Products from '../pages/Products';
-import ProductDetails from '../pages/ProductDetails';
-import Login from '../pages/Login';
-import SignUp from '../pages/SignUp';
-import Dashboard from '../pages/Dashboard';
-import Navbar from './Navbar';
-import Error from './Error';
-import Flash from './Flash';
-import Sidebar from './Sidebar';
+import Home from './Home';
+import Products from './Products';
+import ProductDetails from './ProductDetails';
+import Login from './Login';
+import SignUp from './SignUp';
+import Dashboard from './Dashboard';
+import Navbar from '../components/Navbar';
+import Error from '../components/Error';
+import Flash from '../components/Flash';
+import Sidebar from '../components/Sidebar';
 // Actions
 import { loginFromStorage } from '../features/user/userSlice';
 import { getProducts } from '../features/catalog/catalogSlice';
 // Styles
-import { MainContainer } from './MainContainer.styled';
+import { MainContainer } from '../components/MainContainer.styled';
 const Main = () => {
   // State
   let loggedIn = useSelector((state) => state.user.loggedIn);

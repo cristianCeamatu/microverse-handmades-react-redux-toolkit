@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
-  background: rgba(0, 0, 0, 0.3);
+  /* background: ; */
   position: fixed;
   color: #fff;
   width: 100%;
@@ -15,6 +15,8 @@ export const Nav = styled.nav`
   font-weight: bold;
   transition: 0.1s ease-in;
   left: ${({ sidebarIsOpen }) => (sidebarIsOpen ? '270px' : '0')};
+  background: ${({ scrolled }) =>
+    scrolled ? 'rgba(0, 0, 0, 0.3)' : 'transparent'};
 `;
 
 export const NavContainer = styled.div`
@@ -32,9 +34,8 @@ export const NavLogo = styled(Link)`
   display: flex;
   align-items: center;
   padding: 2px;
-  border-radius: 5px;
-  background-color: rgb(0, 0, 0, 0.5);
-  box-shadow: 0px 0px 2px rgb(233, 84, 6);
+  color: #fff;
+  font-size: 1.6rem;
 `;
 
 export const NavMenu = styled.ul`
