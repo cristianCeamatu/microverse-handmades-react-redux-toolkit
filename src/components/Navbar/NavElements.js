@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
-  background-color: gray;
+  background: transparent;
   position: fixed;
   width: 100%;
   left: 0;

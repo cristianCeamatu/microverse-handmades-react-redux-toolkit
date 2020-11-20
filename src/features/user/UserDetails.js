@@ -12,9 +12,15 @@ const UserDetails = () => {
       <h3>Account details</h3>
       <ul>
         <li>
-          <img
+          {/* <img
             src="http://unsplash.it/100/100?gravity=center"
             alt="Random unsplash img"
+          /> */}
+          <img
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="Random unsplash img"
+            width="100"
+            height="100"
           />
         </li>
         <li>Name: {name}</li>

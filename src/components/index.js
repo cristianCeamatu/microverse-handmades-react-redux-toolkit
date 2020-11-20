@@ -43,7 +43,7 @@ const Main = () => {
   return (
     <>
       <Navbar />
-      {/* <Sidebar /> */}
+      <Sidebar />
       <Flash />
       {error ? (
         <Error errors={`${error}. Please contact the administrator.`} />

@@ -1,7 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { FaBars, FaSearch } from 'react-icons/fa';
-// Actions
-import { logout } from '../../features/user/userSlice';
 // Styles
 import {
   Nav,
@@ -20,12 +18,6 @@ import logo from '../../assets/logo.png';
 const Navbar = () => {
   // State
   const loggedIn = useSelector((state) => state.user.loggedIn);
-  // Effects
-  const dispatch = useDispatch();
-  const handleLogout = (e) => {
-    e.preventDefault();
-    dispatch(logout());
-  };
 
   return (
     <>
@@ -55,7 +47,7 @@ const Navbar = () => {
                 <li>
                   <ProfileAvatar>
                     <img
-                      src="http://unsplash.it/100/100?gravity=center"
+                      src="https://www.w3schools.com/howto/img_avatar.png"
                       alt="Random unsplash img"
                       width="30"
                       height="30"
