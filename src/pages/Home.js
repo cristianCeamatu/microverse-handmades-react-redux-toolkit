@@ -7,6 +7,7 @@ import FavoritedProducts from '../features/catalog/FavoritedProducts';
 import HeroSection from '../components/HeroSection';
 import DashboardSection from '../components/DashboardSection';
 import DesignerSection from '../components/DesignerSection';
+import PeopleSection from '../components/PeopleSection';
 
 const Home = () => {
   // State
@@ -22,6 +23,7 @@ const Home = () => {
       <HeroSection />
       <DashboardSection />
       <DesignerSection />
+      <PeopleSection />
       <FavoritedProducts />
       <NewestProducts />
     </div>
