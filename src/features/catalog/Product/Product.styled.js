@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.article`
-  max-width: 300px;
+  width: 300px;
+  max-width: 80%;
+  max-height: 500px;
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
   border: 1px solid rgba(0, 0, 0, 0.15);
 
   .image {
-    width: 100%;
-    max-width: 300px;
-    height: 350px;
+    width: 300px;
+    max-width: 100%;
+    height: 85%;
 
     img {
       height: 100%;

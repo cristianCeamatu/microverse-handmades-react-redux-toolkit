@@ -16,7 +16,8 @@ const AllProducts = () => {
 
   return (
     <ProductsContainer>
-      {productsItems}
+      <div className="slider full">{productsItems}</div>
+
       <SliderPagination total={products.length} current={current} />
     </ProductsContainer>
   );
