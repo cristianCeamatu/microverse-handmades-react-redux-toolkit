@@ -49,6 +49,14 @@ export const Container = styled.main`
       color: #919191;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    .wrapper {
+      padding-top: 60px;
+    }
+  }
 `;
 
-export const Button = styled(Link)``;
+export const StyledLink = styled(Link)`
+  font-size: 0.75rem;
+`;

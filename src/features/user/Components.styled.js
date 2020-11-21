@@ -6,7 +6,7 @@ export const Form = styled.form`
     border-radius: 50px;
     margin: 10px auto;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 0.875rem;
+    font-size: 0.75rem;
 
     &:focus,
     &:active {
@@ -20,7 +20,7 @@ export const Form = styled.form`
     padding: 5px 20px;
     background: rgb(233, 84, 6);
     margin-right: 10px;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     text-shadow: none;
     color: #fff;
     outline: none;
