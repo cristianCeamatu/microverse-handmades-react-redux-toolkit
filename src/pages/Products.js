@@ -20,7 +20,6 @@ const Products = () => {
         <Error errors={error} />
       ) : (
         <MobileContainer>
-          <h1>All products</h1>
           <AllProducts />
         </MobileContainer>
       )}

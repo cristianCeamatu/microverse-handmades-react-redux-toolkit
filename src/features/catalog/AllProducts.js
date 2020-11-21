@@ -1,18 +1,24 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 // Components
 import Product from './Product';
+import SliderPagination from './SliderPagination';
+// Styles
+import { ProductsContainer } from './Globals.styled';
 
 const AllProducts = () => {
+  // State
+  const [current, setCurrent] = useState(1);
   const products = useSelector((state) => state.catalog.products);
   const productsItems = [...products].map((product) => (
     <Product key={product.id} product={product} />
   ));
 
   return (
-    <div>
-      <h1>All categories</h1>
+    <ProductsContainer>
       {productsItems}
-    </div>
+      <SliderPagination total={products.length} current={current} />
+    </ProductsContainer>
   );
 };
 

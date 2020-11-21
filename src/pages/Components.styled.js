@@ -58,7 +58,7 @@ export const Container = styled.main`
 `;
 
 export const MobileContainer = styled.main`
-  padding-top: 50px;
+  padding: 50px 30px 15px;
 `;
 
 export const StyledLink = styled(Link)`

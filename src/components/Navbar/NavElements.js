@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
-  /* background: ; */
   position: fixed;
   width: 100%;
   left: 0;
@@ -15,7 +14,7 @@ export const Nav = styled.nav`
   background: ${({ scrolled, mobileView }) =>
     scrolled && !mobileView ? 'rgba(0, 0, 0, 0.3)' : 'transparent'};
   color: ${({ mobileView }) => (mobileView ? '#565656' : '#fff')};
-  padding: ${({ mobileView }) => (mobileView ? '10px 0' : '3px')};
+  padding: ${({ mobileView }) => (mobileView ? '10px' : '3px')};
   text-transform: ${({ mobileView }) => (mobileView ? 'none' : 'uppercase')};
 `;
 

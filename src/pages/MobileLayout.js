@@ -22,7 +22,6 @@ const MobileLayout = ({ children }) => {
         <MobileNavbar sidebarIsOpen={isOpen} toggle={toggle} />
         {children}
         <Flash />
-        <Footer />
       </MainContainer>
     </>
   );
