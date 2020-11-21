@@ -21,6 +21,18 @@ const Sidebar = ({ isOpen, toggle }) => {
   // State
   const loggedIn = useSelector((state) => state.user.loggedIn);
   const user = useSelector((state) => state.user.user);
+  const craftsCount = useSelector((state) => state.catalog.products.length);
+  const createdCount = useSelector(
+    (state) =>
+      state.catalog.products.filter((product) => product.user_id === user.id)
+        .length
+  );
+  const favoritedCount = useSelector(
+    (state) =>
+      state.catalog.products.filter((product) =>
+        product.favorited_by.some((favorite) => favorite.id === user.id)
+      ).length
+  );
 
   // Effects
   const dispatch = useDispatch();
@@ -52,20 +64,22 @@ const Sidebar = ({ isOpen, toggle }) => {
               <SidebarLink to="/dashboard">Dashboard</SidebarLink>
             </SidebarItem>
             <SidebarItem>
-              <SidebarLink to="/login">
-                Notifications <span>6</span>
+              <SidebarLink to="/products">
+                Crafts <span>{craftsCount}</span>
               </SidebarLink>
             </SidebarItem>
             <SidebarItem>
-              <SidebarLink to="/login">
-                Messages <span>2</span>
+              <SidebarLink to="/creations">
+                My creations <span>{createdCount}</span>
               </SidebarLink>
             </SidebarItem>
             <SidebarItem>
-              <SidebarLink to="/">Friends</SidebarLink>
+              <SidebarLink to="/favorites">
+                My favorites <span>{favoritedCount}</span>
+              </SidebarLink>
             </SidebarItem>
             <SidebarItem>
-              <SidebarLink to="/">Statistic</SidebarLink>
+              <SidebarLink to="/account">Account</SidebarLink>
             </SidebarItem>
           </SidebarMenu>
 

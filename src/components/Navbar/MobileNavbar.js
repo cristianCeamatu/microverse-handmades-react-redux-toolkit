@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import {
   Nav,
   NavContainer,
-  NavLogo,
   NavMenu,
   NavLink,
   SpecialLink,
@@ -15,14 +14,14 @@ import {
   DownloadLink,
   ProfileAvatar,
 } from './NavElements';
-// Assets
-import logo from '../../assets/logo.png';
 
-const Navbar = ({ toggle, sidebarIsOpen }) => {
+const MobileNavbar = ({ toggle, sidebarIsOpen }) => {
   // State
   const loggedIn = useSelector((state) => state.user.loggedIn);
-
   const [scrolled, setScrolled] = useState(false);
+  const currentProductTitle = useSelector(
+    (state) => state.catalog.currentProductTitle
+  );
 
   // Effects
   document.addEventListener('scroll', () => {
@@ -36,16 +35,15 @@ const Navbar = ({ toggle, sidebarIsOpen }) => {
 
   return (
     <>
-      <Nav sidebarIsOpen={sidebarIsOpen} scrolled={scrolled}>
+      <Nav sidebarIsOpen={sidebarIsOpen} scrolled={scrolled} mobileView={true}>
         <NavContainer>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
 
-          <NavLogo to="/">
-            <img src={logo} alt="Company brand logo" width="40" />
-            Crafts
-          </NavLogo>
+          <h3>
+            {currentProductTitle ? currentProductTitle : 'Loading product'}
+          </h3>
 
           <MobileIcon>
             <FaSearch />
@@ -93,9 +91,9 @@ const Navbar = ({ toggle, sidebarIsOpen }) => {
   );
 };
 
-Navbar.propTypes = {
+MobileNavbar.propTypes = {
   toggle: PropTypes.func.isRequired,
   sidebarIsOpen: PropTypes.bool.isRequired,
 };
 
-export default Navbar;
+export default MobileNavbar;

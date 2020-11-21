@@ -15,6 +15,7 @@ export const Form = styled.form`
   }
 
   button {
+    cursor: pointer;
     border-radius: 50px;
     margin-top: 10px;
     padding: 5px 20px;

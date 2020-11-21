@@ -57,6 +57,10 @@ export const Container = styled.main`
   }
 `;
 
+export const MobileContainer = styled.main`
+  padding-top: 50px;
+`;
+
 export const StyledLink = styled(Link)`
   font-size: 0.75rem;
 `;
