@@ -5,7 +5,7 @@ import Error from '../../components/Error';
 // Actions
 import { login } from './userSlice';
 // Styles
-import { Form } from './Styles';
+import { Form } from './Components.styled';
 
 const LoginForm = () => {
   // State

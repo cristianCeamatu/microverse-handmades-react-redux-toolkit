@@ -1,20 +1,23 @@
-import { Link } from 'react-router-dom';
 // Components
 import SignUpForm from '../features/user/SignUpForm';
+// Styles
+import { Container, Button } from './Components.styled.js';
 
 const SignUp = () => (
-  <main>
-    <header>
-      <h1>Sign up</h1>
-      <p>Hello there! Sign up and start managing your system</p>
-    </header>
+  <Container>
+    <div className="wrapper">
+      <header>
+        <h1>Sign up</h1>
+        <p>Hello there! Sign up and start managing your system</p>
+      </header>
 
-    <SignUpForm />
+      <SignUpForm />
 
-    <footer>
-      <Link to="/login">Already registered?</Link>
-    </footer>
-  </main>
+      <footer>
+        <Button to="/login">Already registered?</Button>
+      </footer>
+    </div>
+  </Container>
 );
 
 export default SignUp;

@@ -28,8 +28,8 @@ export const Container = styled.main`
     max-width: 300px;
 
     header {
-      padding-top: 90px;
-      margin-bottom: 60px;
+      padding-top: 30px;
+      margin-bottom: 15px;
 
       h1 {
         font-size: 2rem;
@@ -43,7 +43,7 @@ export const Container = styled.main`
     }
 
     footer {
-      padding-top: 120px;
+      padding-top: 15px;
       display: flex;
       justify-content: center;
       color: #919191;
