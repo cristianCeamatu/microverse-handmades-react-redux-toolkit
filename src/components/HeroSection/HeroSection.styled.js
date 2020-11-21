@@ -25,6 +25,7 @@ export const HeroBg = styled.div`
   background: #fafafa;
   overflow: hidden;
 `;
+
 export const VideoBg = styled.video`
   width: 100%;
   height: 100%;
@@ -85,7 +86,7 @@ export const VideoLink = styled.a`
 
 export const DownArrow = styled(ScrollLink)`
   position: absolute;
-  bottom: 15px;
+  bottom: 30px;
   right: calc(50% - 20px);
   color: rgba(256, 256, 256, 0.5);
   font-size: 30px;

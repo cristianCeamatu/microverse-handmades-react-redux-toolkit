@@ -52,16 +52,14 @@ const Sidebar = ({ isOpen, toggle }) => {
               <SidebarLink to="/dashboard">Dashboard</SidebarLink>
             </SidebarItem>
             <SidebarItem>
-              <div>
-                <SidebarLink to="/login">Notifications</SidebarLink>
-                <span>6</span>
-              </div>
+              <SidebarLink to="/login">
+                Notifications <span>6</span>
+              </SidebarLink>
             </SidebarItem>
             <SidebarItem>
-              <div>
-                <SidebarLink to="/login">Messages</SidebarLink>
-                <span>2</span>
-              </div>
+              <SidebarLink to="/login">
+                Messages <span>2</span>
+              </SidebarLink>
             </SidebarItem>
             <SidebarItem>
               <SidebarLink to="/">Friends</SidebarLink>

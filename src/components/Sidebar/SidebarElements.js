@@ -6,8 +6,7 @@ export const SidebarContainer = styled.aside`
   padding: 30px 0;
   z-index: 999;
   width: 250px;
-  height: 100%;
-  max-height: 100vh;
+
   align-items: center;
   top: 0;
   left: 0;
@@ -21,7 +20,7 @@ export const SidebarContainer = styled.aside`
 export const SidebarLogo = styled(Link)`
   display: flex;
   justify-content: center;
-  margin: 30px auto 0;
+  margin: 15px auto 0;
   max-width: 100px;
   padding: 5px;
   display: flex;
@@ -34,9 +33,10 @@ export const SidebarLogo = styled(Link)`
   font-size: 1.8rem;
   font-weight: bold;
 `;
+
 export const SidebarProfile = styled.div`
-  padding: 25px;
-  margin-bottom: 30px;
+  padding: 5px 25px;
+  margin-bottom: 15px;
 
   img {
     border-radius: 50%;
@@ -52,22 +52,31 @@ export const SidebarProfile = styled.div`
     color: gray;
   }
 `;
+
 export const SidebarMenu = styled.div``;
 
-export const SidebarItem = styled.div`
-  padding: 5px 25px;
+export const SidebarItem = styled.div``;
+
+export const Divider = styled.div`
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 5px 25px;
+`;
+
+export const SidebarLink = styled(Link)`
+  font-size: 0.825rem;
   cursor: pointer;
+  padding: 5px 25px;
+  display: block;
 
   &.active,
   &:hover {
     border-left: 3px solid rgb(233, 84, 6);
   }
 
-  div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   span {
     background-color: rgb(233, 84, 6);
@@ -77,22 +86,14 @@ export const SidebarItem = styled.div`
     border-radius: 50px;
   }
 `;
-export const Divider = styled.div`
-  height: 1px;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin: 15px 25px;
-`;
-export const SidebarLink = styled(Link)`
-  font-size: 0.825rem;
-  cursor: pointer;
-`;
+
 export const SpecialLink = styled(SidebarLink)`
   border-radius: 50px;
   color: rgb(233, 84, 6);
 `;
 
 export const AnchorLink = styled.a`
+  padding: 5px 25px;
   font-size: 0.825rem;
   color: red;
-  cursor: pointer;
 `;

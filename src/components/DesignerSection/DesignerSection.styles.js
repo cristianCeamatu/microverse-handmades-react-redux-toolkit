@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.section`
-  padding: 45px 15px;
+  padding: 60px 5px;
   background: #e7f0ff;
   text-align: center;
 

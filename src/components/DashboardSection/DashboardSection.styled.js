@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const DashboardContainer = styled.section`
-  margin: 30px 5px;
+  padding: 60px 5px;
   text-align: center;
   background-color: #f8f8f8;
 
