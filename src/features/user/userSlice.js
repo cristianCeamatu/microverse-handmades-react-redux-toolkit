@@ -21,8 +21,6 @@ export const login = createAsyncThunk(
       };
       localStorage.setItem('currentUser', JSON.stringify({ user, header }));
 
-      window.flash(`Welcome ${user.name}!`);
-
       return { user, header };
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -45,7 +43,6 @@ export const signUp = createAsyncThunk(
         uid: headers.uid,
       };
       localStorage.setItem('currentUser', JSON.stringify({ user, header }));
-      window.flash(`Congratulations ${user.name}!`);
 
       return { user, header };
     } catch (error) {
@@ -65,7 +62,6 @@ export const userSlice = createSlice({
   reducers: {
     logout: (state) => {
       localStorage.removeItem('currentUser');
-      window.flash(`have a nice day ${state.user.name}!`);
       state.user = {};
       state.headers = {};
       state.loggedIn = false;
