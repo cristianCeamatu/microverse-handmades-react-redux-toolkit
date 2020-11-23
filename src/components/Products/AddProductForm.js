@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Error from '../../components/Error';
 // Actions
 import { addProduct } from '../../features/catalog/catalogSlice';
+// Styles
+import { Form } from '../Styles.styled';
 
 const AddProductForm = () => {
   // State
@@ -28,13 +30,11 @@ const AddProductForm = () => {
   };
   return (
     <div>
-      <h3>Add product</h3>
-
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <Form className="add-product" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
             name="name"
-            placeholder="Name"
+            placeholder="Name of the craft"
             ref={register({
               required: {
                 value: true,
@@ -55,8 +55,8 @@ const AddProductForm = () => {
         <div>
           <textarea
             name="description"
-            placeholder="Description"
-            rows="10"
+            placeholder="Description (the story behind this craft)"
+            rows="5"
             cols="20"
             ref={register({
               required: {
@@ -100,7 +100,7 @@ const AddProductForm = () => {
         <div>
           <input
             name="usedFor"
-            placeholder="Used for"
+            placeholder="Used for (Cooking, Sports...)"
             ref={register({
               required: {
                 value: true,
@@ -151,7 +151,7 @@ const AddProductForm = () => {
         )}
 
         {(error && <Error errors={error} />) || null}
-      </form>
+      </Form>
     </div>
   );
 };

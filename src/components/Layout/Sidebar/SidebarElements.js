@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { FaPlus } from 'react-icons/fa';
 
 export const SidebarContainer = styled.aside`
   position: fixed;
@@ -96,4 +97,10 @@ export const AnchorLink = styled.a`
   font-size: 0.825rem;
   color: red;
   cursor: pointer;
+`;
+
+export const PlusIcon = styled(FaPlus)`
+  margin-left: auto;
+  margin-right: 6px;
+  color: rgb(233, 84, 6);
 `;

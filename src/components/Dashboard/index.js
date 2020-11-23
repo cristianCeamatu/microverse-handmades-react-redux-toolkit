@@ -1,17 +1,23 @@
 // Components
 import AddProductForm from '../Products/AddProductForm';
-import UserProducts from '../Products/UserProducts';
-import UserFavorites from '../Products/UserFavorites';
-import Layout from '../Layout';
+import MobileLayout from '../Layout/MobileLayout';
+// Styles
+import { MobileContainer } from '../Styles.styled.js';
 
 const Dashboard = () => {
   return (
-    <Layout>
-      <h1>Dashboard</h1>
-      <AddProductForm />
-      <UserFavorites />
-      <UserProducts />
-    </Layout>
+    <MobileLayout title={'Dashboard'}>
+      <MobileContainer>
+        <div className="wrapper">
+          <header>
+            <h1>Add a craft</h1>
+            <p>Ready to share your next creation with the world?</p>
+          </header>
+
+          <AddProductForm />
+        </div>
+      </MobileContainer>
+    </MobileLayout>
   );
 };
 
