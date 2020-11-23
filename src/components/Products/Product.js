@@ -7,7 +7,7 @@ import { ProductContainer } from './Styles.styled.js';
 const Product = ({ product }) => {
   // Props
   const { id, name, price, usedFor, image_url: imageUrl, ratings } = product;
-  const rating = ratings ? ratings : 3.5;
+  const rating = ratings ? ratings : Math.floor(Math.random() * Math.floor(6));
 
   return (
     <ProductContainer>

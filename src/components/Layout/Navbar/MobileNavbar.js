@@ -15,13 +15,11 @@ import {
   ProfileAvatar,
 } from './NavElements';
 
-const MobileNavbar = ({ toggle, sidebarIsOpen }) => {
+const MobileNavbar = ({ toggle, sidebarIsOpen, productPage, title }) => {
   // State
   const loggedIn = useSelector((state) => state.user.loggedIn);
+  const productName = useSelector((state) => state.catalog.product.name);
   const [scrolled, setScrolled] = useState(false);
-  const currentProductTitle = useSelector(
-    (state) => state.catalog.currentProductTitle
-  );
 
   // Effects
   document.addEventListener('scroll', () => {
@@ -41,9 +39,7 @@ const MobileNavbar = ({ toggle, sidebarIsOpen }) => {
             <FaBars />
           </MobileIcon>
 
-          <h3>
-            {currentProductTitle ? currentProductTitle : 'Loading product'}
-          </h3>
+          <h3>{productName && productPage ? productName : title}</h3>
 
           <MobileIcon>
             <FaSearch />
@@ -94,6 +90,8 @@ const MobileNavbar = ({ toggle, sidebarIsOpen }) => {
 MobileNavbar.propTypes = {
   toggle: PropTypes.func.isRequired,
   sidebarIsOpen: PropTypes.bool.isRequired,
+  productPage: PropTypes.bool,
+  title: PropTypes.string,
 };
 
 export default MobileNavbar;

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 // Components
 import MobileNavbar from './Navbar/MobileNavbar';
 import Sidebar from './Sidebar';
@@ -6,7 +7,7 @@ import Sidebar from './Sidebar';
 // Styles
 import { MainContainer } from '../Styles.styled';
 
-const MobileLayout = ({ children }) => {
+const MobileLayout = ({ children, productPage, title }) => {
   // State
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,11 +18,21 @@ const MobileLayout = ({ children }) => {
     <>
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <MainContainer sidebarIsOpen={isOpen}>
-        <MobileNavbar sidebarIsOpen={isOpen} toggle={toggle} />
+        <MobileNavbar
+          sidebarIsOpen={isOpen}
+          toggle={toggle}
+          productPage={productPage}
+          title={title}
+        />
         {children}
       </MainContainer>
     </>
   );
+};
+
+MobileLayout.propTypes = {
+  productPage: PropTypes.bool,
+  title: PropTypes.string,
 };
 
 export default MobileLayout;

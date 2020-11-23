@@ -18,7 +18,7 @@ const Products = () => {
   }, [dispatch, products]);
 
   return (
-    <MobileLayout>
+    <MobileLayout title={'Crafts'} productPage={false}>
       <MobileContainer>
         <AllProducts />
       </MobileContainer>
