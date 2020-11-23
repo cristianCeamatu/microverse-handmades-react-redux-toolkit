@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { FaBars, FaSearch } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
+import { FaArrowLeft, FaBars, FaSearch } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
 // Styles
@@ -20,6 +21,7 @@ const MobileNavbar = ({ toggle, sidebarIsOpen, productPage, title }) => {
   const loggedIn = useSelector((state) => state.user.loggedIn);
   const productName = useSelector((state) => state.catalog.product.name);
   const [scrolled, setScrolled] = useState(false);
+  const history = useHistory();
 
   // Effects
   document.addEventListener('scroll', () => {
@@ -30,21 +32,28 @@ const MobileNavbar = ({ toggle, sidebarIsOpen, productPage, title }) => {
       setScrolled(false);
     }
   });
+  const goBack = (e) => {
+    e.preventDefault();
+    history.goBack();
+  };
 
   return (
     <>
       <Nav sidebarIsOpen={sidebarIsOpen} scrolled={scrolled} mobileView={true}>
         <NavContainer>
-          <MobileIcon onClick={toggle}>
-            <FaBars />
-          </MobileIcon>
-
+          {productPage ? (
+            <MobileIcon onClick={goBack}>
+              <FaArrowLeft />
+            </MobileIcon>
+          ) : (
+            <MobileIcon onClick={toggle}>
+              <FaBars />
+            </MobileIcon>
+          )}
           <h3>{productName && productPage ? productName : title}</h3>
-
           <MobileIcon>
             <FaSearch />
           </MobileIcon>
-
           <NavMenu>
             {loggedIn ? (
               <>

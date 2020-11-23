@@ -140,6 +140,11 @@ export const catalogSlice = createSlice({
         }
         return product;
       });
+      type === 'favorite'
+        ? state.product.favorited_by.push(currentUser)
+        : (state.product.favorited_by = state.product.favorited_by.filter(
+            (favorite) => favorite.id !== currentUser.id
+          ));
       state.loaders.favorite = false;
       state.errors.favorite = false;
     },

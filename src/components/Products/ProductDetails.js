@@ -7,7 +7,6 @@ const ProductDetails = ({ match }) => {
   const { id } = match.params;
   return (
     <MobileLayout productPage={true}>
-      <h1>Product Details</h1>
       <ShowProduct id={id} />
     </MobileLayout>
   );

@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 // Actions
 import { favorite } from '../../features/catalog/catalogSlice';
+// Styles
+import { FavoriteIcon, UnfavoriteIcon } from './Styles.styled';
 
 const FavoriteButton = ({ id, favoritedBy }) => {
   // State
@@ -29,7 +31,7 @@ const FavoriteButton = ({ id, favoritedBy }) => {
         onClick={handleFavorite}
         disabled={favoriteLoading && favoriteLoading === id}
       >
-        {isFavorited ? '♥' : '💓'}
+        {isFavorited ? <UnfavoriteIcon /> : <FavoriteIcon />}
       </button>
 
       {favoriteError ? <p>{favoriteError}</p> : null}

@@ -67,6 +67,9 @@ export const Container = styled.main`
 export const MobileContainer = styled.main`
   padding: 60px 15px 15px;
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const StyledLink = styled(Link)`

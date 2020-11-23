@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import ReactStars from 'react-rating-stars-component';
 // Components
 import FavoriteButton from './FavoriteButton';
 import Loading from '../../components/Loading';
@@ -9,6 +10,8 @@ import Error from '../../components/Error';
 import { formatDate } from '../../utils/date';
 // Actions
 import { getProduct } from '../../features/catalog/catalogSlice';
+// Styles
+import { ShowProductContainer } from './Styles.styled';
 
 const ShowProduct = ({ id }) => {
   // State
@@ -19,7 +22,6 @@ const ShowProduct = ({ id }) => {
 
   // Props
   const {
-    name,
     description,
     price,
     usedFor,
@@ -30,6 +32,7 @@ const ShowProduct = ({ id }) => {
     updated_at: updatedAt,
     favorited_by: favoritedBy,
   } = product;
+  const rating = ratings ? ratings : Math.floor(Math.random() * Math.floor(6));
 
   // Effects
   const dispatch = useDispatch();
@@ -41,30 +44,70 @@ const ShowProduct = ({ id }) => {
   const createdDate = formatDate(createdAt);
   const updatedDate = formatDate(updatedAt);
 
-  return loading ? (
-    <Loading />
-  ) : error ? (
-    <Error errors={[error]} />
-  ) : (
-    <div>
-      {currentUser.id ? (
-        <FavoriteButton id={+id} favoritedBy={favoritedBy} />
-      ) : null}
-      <ul>
-        <li>
-          <img src={imageUrl} alt="Product" />
-        </li>
-        <li>{name}</li>
-        <li>{description}</li>
-        <li>{(+price).toFixed(2)}</li>
-        <li>{usedFor}</li>
-        {ratings ? <li>{ratings.join('-')}</li> : null}
-        <li>By {userName}</li>
-        <li>Likes ({favoritedBy.length})</li>
-        {updatedDate !== createdDate ? <li>Updated {updatedDate}</li> : null}
-        <li>Added {createdDate}</li>
-      </ul>
-    </div>
+  return (
+    <ShowProductContainer>
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <Error errors={[error]} />
+      ) : (
+        <>
+          <div className="image">
+            {currentUser.id ? (
+              <div className="likes">
+                <p>Likes {favoritedBy.length}</p>
+                <FavoriteButton
+                  className="favorite"
+                  id={+id}
+                  favoritedBy={favoritedBy}
+                />
+              </div>
+            ) : null}
+            <img src={imageUrl} alt="Product" />
+
+            <div className="flex">
+              <div className="details">
+                <img
+                  src="http://unsplash.it/50/50?gravity=center"
+                  alt="Random unsplash img"
+                  width="50"
+                  height="50"
+                />
+                <div className="profile">
+                  <h3>{userName}</h3>
+                  <ReactStars
+                    count={5}
+                    value={rating}
+                    isHalf={true}
+                    edit={false}
+                    size={20}
+                    activeColor="#ffd700"
+                    color="#fff"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <p>$ {(+price).toFixed(2)}</p>
+                <p>Usage: {usedFor}</p>
+              </div>
+            </div>
+          </div>
+          <div className="description">
+            <h3>About this craft</h3>
+            <p>{description}</p>
+
+            <p className="date">
+              {updatedDate !== createdDate
+                ? `Updated ${updatedDate}`
+                : `Added ${createdDate}`}
+            </p>
+          </div>
+
+          <a href="/">Apply to rent</a>
+        </>
+      )}
+    </ShowProductContainer>
   );
 };
 
