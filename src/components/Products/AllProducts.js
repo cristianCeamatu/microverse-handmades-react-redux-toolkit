@@ -34,9 +34,11 @@ const AllProducts = () => {
         <Error errors={error} />
       ) : (
         <div className="slider">
-          {productItems.length === 0
-            ? 'No products in the database.'
-            : productItems}
+          {productItems.length === 0 ? (
+            <p className="text-center">No products in the database.</p>
+          ) : (
+            productItems
+          )}
         </div>
       )}
 

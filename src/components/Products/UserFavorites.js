@@ -1,11 +1,18 @@
 import { useSelector } from 'react-redux';
 // Components
+import Loading from '../Loading';
+import Error from '../Error';
 import Product from './Product';
+// Styles
+import { ProductsContainer, SliderPaginationContainer } from './Styles.styled';
 
 const UserFavorites = () => {
   // State
-  const products = useSelector((state) => state.catalog.products);
   const currentUser = useSelector((state) => state.user.user);
+  const loading = useSelector((state) => state.catalog.loaders.loadingProducts);
+  const error = useSelector((state) => state.catalog.errors.loadingProducts);
+  const products = useSelector((state) => state.catalog.products);
+
   // Utils
   const productItems = [...products]
     .filter((product) =>
@@ -14,10 +21,23 @@ const UserFavorites = () => {
     .map((product) => <Product key={product.id} product={product} />);
 
   return (
-    <div>
-      <h1>My favorited ({productItems.length})</h1>
-      {productItems}
-    </div>
+    <ProductsContainer>
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <Error errors={error} />
+      ) : (
+        <div className="slider">
+          {productItems.length === 0
+            ? 'No products in the database.'
+            : productItems}
+        </div>
+      )}
+
+      <SliderPaginationContainer>
+        Total: {productItems.length}
+      </SliderPaginationContainer>
+    </ProductsContainer>
   );
 };
 

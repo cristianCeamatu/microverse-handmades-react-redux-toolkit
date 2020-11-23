@@ -16,12 +16,19 @@ export const ProductsContainer = styled.section`
   .slider {
     gap: 15px;
     display: flex;
+    align-items: center;
     overflow-x: scroll;
     overflow-y: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    .text-center {
+      position: fixed;
+      text-align: center;
+      width: 100%;
     }
   }
 `;

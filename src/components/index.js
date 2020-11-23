@@ -6,7 +6,7 @@ import Home from './Home';
 import Products from './Products';
 import ProductDetails from './Products/ProductDetails';
 import Creations from './Products/Creations';
-import UserFavorites from './Products/UserFavorites';
+import Favorites from './Products/Favorites';
 import Login from './Login';
 import SignUp from './SignUp';
 import Dashboard from './Dashboard';
@@ -45,7 +45,7 @@ const Main = () => {
           {loggedIn ? <Creations /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/favorites">
-          {loggedIn ? <UserFavorites /> : <Redirect to="/login" />}
+          {loggedIn ? <Favorites /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/products" component={Products} />
         <Route exact path="/products/:id" component={ProductDetails} />
