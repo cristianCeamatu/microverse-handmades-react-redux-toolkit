@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import Home from './Home';
 import Products from './Products';
 import ProductDetails from './Products/ProductDetails';
+import Creations from './Products/Creations';
+import UserFavorites from './Products/UserFavorites';
 import Login from './Login';
 import SignUp from './SignUp';
 import Dashboard from './Dashboard';
@@ -39,9 +41,15 @@ const Main = () => {
         <Route exact path="/dashboard">
           {loggedIn ? <Dashboard /> : <Redirect to="/login" />}
         </Route>
+        <Route exact path="/creations">
+          {loggedIn ? <Creations /> : <Redirect to="/login" />}
+        </Route>
+        <Route exact path="/favorites">
+          {loggedIn ? <UserFavorites /> : <Redirect to="/login" />}
+        </Route>
         <Route exact path="/products" component={Products} />
         <Route exact path="/products/:id" component={ProductDetails} />
-        <Route exact path="/" component={Home} />
+        <Route path="*" component={Home} />
       </Switch>
     </>
   );

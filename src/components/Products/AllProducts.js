@@ -22,7 +22,7 @@ const AllProducts = () => {
   }, [dispatch, products]);
 
   // Utils
-  const productsItems = [...products].map((product) => (
+  const productItems = [...products].map((product) => (
     <Product key={product.id} product={product} />
   ));
 
@@ -33,11 +33,15 @@ const AllProducts = () => {
       ) : error ? (
         <Error errors={error} />
       ) : (
-        <div className="slider">{productsItems}</div>
+        <div className="slider">
+          {productItems.length === 0
+            ? 'No products in the database.'
+            : productItems}
+        </div>
       )}
 
       <SliderPaginationContainer>
-        Total: {products.length}
+        Total: {productItems.length}
       </SliderPaginationContainer>
     </ProductsContainer>
   );
