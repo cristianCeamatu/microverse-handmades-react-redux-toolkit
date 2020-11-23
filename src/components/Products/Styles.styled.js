@@ -1,37 +1,28 @@
 import styled from 'styled-components';
 
 export const ProductsContainer = styled.section`
+  height: 80vh;
+  max-height: 500px;
   display: grid;
   grid-template-columns: 1px 1fr 1px;
-  grid-template-rows: 80vh;
-
   & > * {
     grid-column: 2 / -2;
   }
-
   & > .full {
     grid-column: 1 / -1;
   }
 
   .slider {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    gap: 15px;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
     }
-    overflow-x: scroll;
-    overflow-y: hidden;
-
-    gap: 30px;
-    display: flex;
   }
-`;
-
-export const SliderPaginationContainer = styled.div`
-  font-weight: bold;
-  word-spacing: 1px;
-  text-align: center;
-  margin-top: 15px;
 `;
 
 export const ProductContainer = styled.article`
@@ -42,7 +33,6 @@ export const ProductContainer = styled.article`
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border: 1px solid red;
 
   .image {
     width: 300px;
@@ -75,4 +65,11 @@ export const ProductContainer = styled.article`
       }
     }
   }
+`;
+
+export const SliderPaginationContainer = styled.div`
+  font-weight: bold;
+  word-spacing: 1px;
+  text-align: center;
+  margin-top: 10px;
 `;

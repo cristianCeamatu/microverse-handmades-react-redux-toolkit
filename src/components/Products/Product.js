@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ReactStars from 'react-rating-stars-component';
 // Styles
-import { ProductContainer } from './Globals.styled.js';
+import { ProductContainer } from './Styles.styled.js';
 
 const Product = ({ product }) => {
   // Props
