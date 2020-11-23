@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import {
   Nav,
   NavContainer,
-  NavMenu,
+  MobileNavMenu,
   NavLink,
   SpecialLink,
   MobileIcon,
@@ -55,7 +55,7 @@ const MobileNavbar = ({
           <MobileIcon className="search">
             <FaSearch />
           </MobileIcon>
-          <NavMenu>
+          <MobileNavMenu>
             {loggedIn ? (
               <>
                 <li>
@@ -77,7 +77,7 @@ const MobileNavbar = ({
                 </li>
               </>
             )}
-          </NavMenu>
+          </MobileNavMenu>
         </NavContainer>
       </Nav>
     </>

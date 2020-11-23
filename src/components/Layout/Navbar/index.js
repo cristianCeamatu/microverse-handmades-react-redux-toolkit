@@ -61,7 +61,7 @@ const Navbar = ({ toggle, sidebarIsOpen }) => {
                 <li>
                   <NavLink to="/login">Login</NavLink>
                 </li>
-                <li>
+                <li className="lg-screen">
                   <NavLink to="/sign_up">
                     <SpecialLink>Sign up</SpecialLink>
                   </NavLink>

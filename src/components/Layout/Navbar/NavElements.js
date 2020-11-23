@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+/* eslint-disable */
 export const Nav = styled.nav`
   position: fixed;
   width: 100%;
@@ -11,7 +11,8 @@ export const Nav = styled.nav`
   font-weight: bold;
   transition: 0.1s ease-in;
   left: ${({ sidebarIsOpen }) => (sidebarIsOpen ? '270px' : '0')};
-  background: ${({ scrolled, mobileView }) => (scrolled && !mobileView ? 'rgba(0, 0, 0, 0.3)' : 'transparent')};
+  background: ${({ scrolled, mobileView }) =>
+    scrolled && !mobileView ? 'rgba(0, 0, 0, 0.3)' : 'transparent'};
   color: ${({ mobileView }) => (mobileView ? '#565656' : '#fff')};
   padding: ${({ mobileView }) => (mobileView ? '10px' : '3px')};
   text-transform: ${({ mobileView }) => (mobileView ? 'none' : 'uppercase')};
@@ -40,7 +41,20 @@ export const NavMenu = styled.ul`
   display: flex;
   align-items: center;
   text-align: center;
+
+  li.lg-screen {
+    display: none;
+
+    @media screen and (min-width: 600px) {
+      display: block;
+    }
+  }
+`;
+
+export const MobileNavMenu = styled.ul`
   display: none;
+  align-items: center;
+  text-align: center;
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -56,7 +70,7 @@ export const NavLink = styled(Link)`
 `;
 
 export const DownloadLink = styled(NavLink)`
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `;
