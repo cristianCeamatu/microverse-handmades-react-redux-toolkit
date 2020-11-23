@@ -29,7 +29,7 @@ const UserFavorites = () => {
       ) : (
         <div className="slider">
           {productItems.length === 0
-            ? 'No products in the database.'
+            ? 'No products favorited by you.'
             : productItems}
         </div>
       )}

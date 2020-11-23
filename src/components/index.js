@@ -10,6 +10,7 @@ import Favorites from './Products/Favorites';
 import Login from './Login';
 import SignUp from './SignUp';
 import Dashboard from './Dashboard';
+import UserDetails from './UserDetails';
 // Actions
 import { loginFromStorage } from '../features/user/userSlice';
 
@@ -46,6 +47,9 @@ const Main = () => {
         </Route>
         <Route exact path="/favorites">
           {loggedIn ? <Favorites /> : <Redirect to="/login" />}
+        </Route>
+        <Route exact path="/account">
+          {loggedIn ? <UserDetails /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/products" component={Products} />
         <Route exact path="/products/:id" component={ProductDetails} />

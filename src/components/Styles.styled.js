@@ -8,6 +8,21 @@ export const MainContainer = styled.main`
   position: relative;
   box-shadow: 0px 0px 20px 1px #000000;
   left: ${({ sidebarIsOpen }) => (sidebarIsOpen ? '270px' : '0')};
+
+  .logout {
+    text-align: center;
+
+    a {
+      border-radius: 50px;
+      display: inline-block;
+      margin-top: 15px;
+      padding: 5px 20px;
+      background: rgb(233, 84, 6);
+      font-size: 0.875rem;
+      text-shadow: none;
+      color: #fff;
+    }
+  }
 `;
 
 export const Container = styled.main`
@@ -108,5 +123,35 @@ export const Form = styled.form`
     color: #fff;
     outline: none;
     border: none;
+  }
+`;
+
+export const Account = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90px;
+  height: 100vh;
+  max-height: 100%;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 6px -6px rgba(233, 84, 6, 0.8);
+    padding: 30px;
+    border: 1px solid rgba(233, 84, 6, 0.2);
+    border-radius: 3px;
+
+    ul li:first-child {
+      text-align: center;
+
+      img {
+        margin: 10px auto;
+        border-radius: 50px;
+        width: 100px;
+        height: 100px;
+      }
+    }
   }
 `;
