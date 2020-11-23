@@ -10,7 +10,7 @@ import { MobileContainer } from '../Styles.styled';
 
 const Products = () => {
   // State
-  const products = useSelector((state) => state.catalog.products);
+  const products = useSelector(state => state.catalog.products);
   // Effects
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,7 +18,7 @@ const Products = () => {
   }, [dispatch, products]);
 
   return (
-    <MobileLayout title={'Crafts'} productPage={false}>
+    <MobileLayout title="Crafts" productPage={false}>
       <MobileContainer>
         <AllProducts />
       </MobileContainer>

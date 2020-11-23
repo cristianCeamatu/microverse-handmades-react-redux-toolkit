@@ -17,7 +17,7 @@ import { loginFromStorage } from '../features/user/userSlice';
 
 const Main = () => {
   // State
-  let loggedIn = useSelector((state) => state.user.loggedIn);
+  const loggedIn = useSelector(state => state.user.loggedIn);
 
   // Effects
   const dispatch = useDispatch();

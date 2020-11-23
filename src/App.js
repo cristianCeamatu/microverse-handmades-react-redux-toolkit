@@ -3,8 +3,6 @@ import Main from './components';
 // Styles
 import './App.css';
 
-const App = () => {
-  return <Main />;
-};
+const App = () => <Main />;
 
 export default App;

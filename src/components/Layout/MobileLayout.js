@@ -12,7 +12,7 @@ const MobileLayout = ({ children, productPage, title }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Effects
-  const toggle = () => setIsOpen((isOpen) => !isOpen);
+  const toggle = () => setIsOpen(isOpen => !isOpen);
 
   return (
     <>
@@ -31,8 +31,12 @@ const MobileLayout = ({ children, productPage, title }) => {
 };
 
 MobileLayout.propTypes = {
-  productPage: PropTypes.bool,
-  title: PropTypes.string,
+  productPage: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 export default MobileLayout;

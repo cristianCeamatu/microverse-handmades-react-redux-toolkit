@@ -1,20 +1,21 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 // Components
-import Error from '../../components/Error';
+import Error from '../Error';
 // Actions
 import { signUp } from '../../features/user/userSlice';
 // Styles
 import { Form } from '../Styles.styled';
+
 const SignUpForm = () => {
   // State
-  const signUpLoader = useSelector((state) => state.user.loaders.signUp);
-  const signUpError = useSelector((state) => state.user.errors.signUp);
+  const signUpLoader = useSelector(state => state.user.loaders.signUp);
+  const signUpError = useSelector(state => state.user.errors.signUp);
 
   // Effects
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     dispatch(signUp(data));
   };
 

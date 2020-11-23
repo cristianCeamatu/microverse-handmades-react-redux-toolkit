@@ -1,7 +1,7 @@
 // Components
 import SignUpForm from './SignUpForm';
 // Styles
-import { Container, StyledLink } from '../Styles.styled.js';
+import { Container, StyledLink } from '../Styles.styled';
 
 const SignUp = () => (
   <Container>

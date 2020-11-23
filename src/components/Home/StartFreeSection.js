@@ -27,13 +27,11 @@ export const Button = styled(Link)`
   text-transform: uppercase;
 `;
 
-const StartFreeSection = () => {
-  return (
-    <Container>
-      <h3>Be everywhere at home!</h3>
-      <Button to="/sign_up">Start free</Button>
-    </Container>
-  );
-};
+const StartFreeSection = () => (
+  <Container>
+    <h3>Be everywhere at home!</h3>
+    <Button to="/sign_up">Start free</Button>
+  </Container>
+);
 
 export default StartFreeSection;

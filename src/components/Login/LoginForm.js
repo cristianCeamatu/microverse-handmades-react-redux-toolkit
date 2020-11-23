@@ -9,12 +9,14 @@ import { Form } from '../Styles.styled';
 
 const LoginForm = () => {
   // State
-  const loginLoader = useSelector((state) => state.user.loaders.login);
-  const loginError = useSelector((state) => state.user.errors.login);
+  const loginLoader = useSelector(state => state.user.loaders.login);
+  const loginError = useSelector(state => state.user.errors.login);
   // Effects
   const dispatch = useDispatch();
-  const { register, handleSubmit, errors, reset } = useForm();
-  const onSubmit = (data) => {
+  const {
+    register, handleSubmit, errors, reset,
+  } = useForm();
+  const onSubmit = data => {
     dispatch(login(data));
     reset();
   };

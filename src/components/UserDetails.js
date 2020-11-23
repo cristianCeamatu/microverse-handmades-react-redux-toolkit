@@ -9,12 +9,12 @@ import { Account } from './Styles.styled';
 
 const UserDetails = () => {
   // State
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector(state => state.user.user);
   const dispatch = useDispatch();
   const history = useHistory();
 
   // Effects
-  const handleLogout = (e) => {
+  const handleLogout = e => {
     e.preventDefault();
     dispatch(logout());
     history.push('/');
@@ -36,9 +36,18 @@ const UserDetails = () => {
                 height="100"
               />
             </li>
-            <li>Name: {name}</li>
-            <li>Username: {nickname}</li>
-            <li>Email: {email}</li>
+            <li>
+              Name:
+              {name}
+            </li>
+            <li>
+              Username:
+              {nickname}
+            </li>
+            <li>
+              Email:
+              {email}
+            </li>
             <li className="logout">
               <a href="/" onClick={handleLogout}>
                 Logout

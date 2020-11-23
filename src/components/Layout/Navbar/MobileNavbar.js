@@ -13,13 +13,14 @@ import {
   SpecialLink,
   MobileIcon,
   DownloadLink,
-  ProfileAvatar,
 } from './NavElements';
 
-const MobileNavbar = ({ toggle, sidebarIsOpen, productPage, title }) => {
+const MobileNavbar = ({
+  toggle, sidebarIsOpen, productPage, title,
+}) => {
   // State
-  const loggedIn = useSelector((state) => state.user.loggedIn);
-  const productName = useSelector((state) => state.catalog.product.name);
+  const loggedIn = useSelector(state => state.user.loggedIn);
+  const productName = useSelector(state => state.catalog.product.name);
   const [scrolled, setScrolled] = useState(false);
   const history = useHistory();
 
@@ -32,14 +33,14 @@ const MobileNavbar = ({ toggle, sidebarIsOpen, productPage, title }) => {
       setScrolled(false);
     }
   });
-  const goBack = (e) => {
+  const goBack = e => {
     e.preventDefault();
     history.goBack();
   };
 
   return (
     <>
-      <Nav sidebarIsOpen={sidebarIsOpen} scrolled={scrolled} mobileView={true}>
+      <Nav sidebarIsOpen={sidebarIsOpen} scrolled={scrolled} mobileView>
         <NavContainer>
           {productPage ? (
             <MobileIcon onClick={goBack}>
@@ -51,7 +52,7 @@ const MobileNavbar = ({ toggle, sidebarIsOpen, productPage, title }) => {
             </MobileIcon>
           )}
           <h3>{productName && productPage ? productName : title}</h3>
-          <MobileIcon>
+          <MobileIcon className="search">
             <FaSearch />
           </MobileIcon>
           <NavMenu>
@@ -59,19 +60,6 @@ const MobileNavbar = ({ toggle, sidebarIsOpen, productPage, title }) => {
               <>
                 <li>
                   <DownloadLink to="/">Download Application</DownloadLink>
-                </li>
-                <li>
-                  <NavLink to="/products">Crafts</NavLink>
-                </li>
-                <li>
-                  <ProfileAvatar onClick={toggle}>
-                    <img
-                      src="http://unsplash.it/30/30?gravity=center"
-                      alt="Random unsplash img"
-                      width="30"
-                      height="30"
-                    />
-                  </ProfileAvatar>
                 </li>
               </>
             ) : (
@@ -99,8 +87,8 @@ const MobileNavbar = ({ toggle, sidebarIsOpen, productPage, title }) => {
 MobileNavbar.propTypes = {
   toggle: PropTypes.func.isRequired,
   sidebarIsOpen: PropTypes.bool.isRequired,
-  productPage: PropTypes.bool,
-  title: PropTypes.string,
+  productPage: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default MobileNavbar;

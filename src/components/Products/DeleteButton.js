@@ -6,20 +6,20 @@ import { deleteProduct } from '../../features/catalog/catalogSlice';
 
 const DeleteButton = ({ id, userId }) => {
   // State
-  const currentUser = useSelector((state) => state.user.user);
+  const currentUser = useSelector(state => state.user.user);
   const deleteLoading = useSelector(
-    (state) => state.catalog.loaders.deleteProduct
+    state => state.catalog.loaders.deleteProduct,
   );
   const deleteError = useSelector(
-    (state) => state.catalog.errors.deleteProduct
+    state => state.catalog.errors.deleteProduct,
   );
 
   // Effects
   const dispatch = useDispatch();
-  const handleDelete = (e) => {
+  const handleDelete = e => {
     e.preventDefault();
     const response = window.confirm(
-      'Are you sure you want to delete the item?'
+      'Are you sure you want to delete the item?',
     );
     if (response) dispatch(deleteProduct(id));
   };

@@ -7,22 +7,20 @@ import { FavoriteIcon, UnfavoriteIcon } from './Styles.styled';
 
 const FavoriteButton = ({ id, favoritedBy }) => {
   // State
-  const currentUser = useSelector((state) => state.user.user);
-  const favoriteLoading = useSelector(
-    (state) => state.catalog.loaders.favorite
-  );
-  const favoriteError = useSelector((state) => state.catalog.errors.favorite);
+  const currentUser = useSelector(state => state.user.user);
+  const favoriteLoading = useSelector(state => state.catalog.loaders.favorite);
+  const favoriteError = useSelector(state => state.catalog.errors.favorite);
+
+  // Utils
+  const isFavorited = favoritedBy.some(user => user.id === currentUser.id);
+  const type = isFavorited ? 'unfavorite' : 'favorite';
 
   // Effects
   const dispatch = useDispatch();
-  const handleFavorite = (e) => {
+  const handleFavorite = e => {
     e.preventDefault();
     dispatch(favorite({ id, type, currentUser }));
   };
-
-  // Utils
-  const isFavorited = favoritedBy.some((user) => user.id === currentUser.id);
-  const type = isFavorited ? 'unfavorite' : 'favorite';
 
   return (
     <>

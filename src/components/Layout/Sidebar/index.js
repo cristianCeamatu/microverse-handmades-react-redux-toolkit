@@ -21,25 +21,21 @@ import {
 
 const Sidebar = ({ isOpen, toggle }) => {
   // State
-  const loggedIn = useSelector((state) => state.user.loggedIn);
-  const user = useSelector((state) => state.user.user);
-  const craftsCount = useSelector((state) => state.catalog.products.length);
+  const loggedIn = useSelector(state => state.user.loggedIn);
+  const user = useSelector(state => state.user.user);
+  const craftsCount = useSelector(state => state.catalog.products.length);
   const createdCount = useSelector(
-    (state) =>
-      state.catalog.products.filter((product) => product.user_id === user.id)
-        .length
-  );
-  const favoritedCount = useSelector(
-    (state) =>
-      state.catalog.products.filter((product) =>
-        product.favorited_by.some((favorite) => favorite.id === user.id)
-      ).length
+    state => state.catalog.products.filter(product => product.user_id === user.id).length,
   );
 
+  /* eslint-disable max-len */
+  const favorited = useSelector(state => state.catalog.products.filter(product => product.favorited_by.some(favorite => favorite.id === user.id)));
+  const favoritedCount = favorited.length;
+
   // Effects
-  let history = useHistory();
+  const history = useHistory();
   const dispatch = useDispatch();
-  const handleLogout = (e) => {
+  const handleLogout = e => {
     e.preventDefault();
     dispatch(logout());
     history.push('/');
@@ -60,28 +56,39 @@ const Sidebar = ({ isOpen, toggle }) => {
               height="50"
             />
             <h3>{name}</h3>
-            <p>@{nickname}</p>
+            <p>
+              @
+              {nickname}
+            </p>
           </SidebarProfile>
 
           <SidebarMenu>
             <SidebarItem>
               <SidebarLink to="/dashboard">
-                Add craft <PlusIcon />
+                Add craft
+                {' '}
+                <PlusIcon />
               </SidebarLink>
             </SidebarItem>
             <SidebarItem>
               <SidebarLink to="/products">
-                Crafts <span>{craftsCount}</span>
+                Crafts
+                {' '}
+                <span>{craftsCount}</span>
               </SidebarLink>
             </SidebarItem>
             <SidebarItem>
               <SidebarLink to="/creations">
-                My creations <span>{createdCount}</span>
+                My creations
+                {' '}
+                <span>{createdCount}</span>
               </SidebarLink>
             </SidebarItem>
             <SidebarItem>
               <SidebarLink to="/favorites">
-                My favorites <span>{favoritedCount}</span>
+                My favorites
+                {' '}
+                <span>{favoritedCount}</span>
               </SidebarLink>
             </SidebarItem>
             <SidebarItem>

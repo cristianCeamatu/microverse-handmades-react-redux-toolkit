@@ -6,7 +6,7 @@ import MobileLayout from '../Layout/MobileLayout';
 const ProductDetails = ({ match }) => {
   const { id } = match.params;
   return (
-    <MobileLayout productPage={true}>
+    <MobileLayout productPage>
       <ShowProduct id={id} />
     </MobileLayout>
   );

@@ -12,7 +12,7 @@ import { getProducts } from '../../features/catalog/catalogSlice';
 
 const Home = () => {
   // State
-  const products = useSelector((state) => state.catalog.products);
+  const products = useSelector(state => state.catalog.products);
   // Effects
   const dispatch = useDispatch();
   useEffect(() => {
@@ -20,7 +20,7 @@ const Home = () => {
   }, [dispatch, products]);
 
   return (
-    <Layout>
+    <Layout homepage>
       <HeroSection />
       <DashboardSection />
       <DesignerSection />

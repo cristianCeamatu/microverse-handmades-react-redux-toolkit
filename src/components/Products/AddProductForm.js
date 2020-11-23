@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 // Components
-import Error from '../../components/Error';
+import Error from '../Error';
 // Actions
 import { addProduct } from '../../features/catalog/catalogSlice';
 // Styles
@@ -9,14 +9,16 @@ import { Form } from '../Styles.styled';
 
 const AddProductForm = () => {
   // State
-  const user = useSelector((state) => state.user.user);
-  const loading = useSelector((state) => state.catalog.loaders.addProduct);
-  const error = useSelector((state) => state.catalog.errors.addProduct);
+  const user = useSelector(state => state.user.user);
+  const loading = useSelector(state => state.catalog.loaders.addProduct);
+  const error = useSelector(state => state.catalog.errors.addProduct);
 
   // Effects
   const dispatch = useDispatch();
-  const { register, handleSubmit, reset, errors } = useForm();
-  const onSubmit = (data) => {
+  const {
+    register, handleSubmit, reset, errors,
+  } = useForm();
+  const onSubmit = data => {
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('description', data.description);

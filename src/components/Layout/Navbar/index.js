@@ -13,14 +13,13 @@ import {
   SpecialLink,
   MobileIcon,
   DownloadLink,
-  ProfileAvatar,
 } from './NavElements';
 // Assets
 import logo from '../../../assets/logo.png';
 
 const Navbar = ({ toggle, sidebarIsOpen }) => {
   // State
-  const loggedIn = useSelector((state) => state.user.loggedIn);
+  const loggedIn = useSelector(state => state.user.loggedIn);
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -47,28 +46,11 @@ const Navbar = ({ toggle, sidebarIsOpen }) => {
             Crafts
           </NavLogo>
 
-          <MobileIcon>
-            <FaSearch />
-          </MobileIcon>
-
           <NavMenu>
             {loggedIn ? (
               <>
                 <li>
                   <DownloadLink to="/">Download Application</DownloadLink>
-                </li>
-                <li>
-                  <NavLink to="/products">Crafts</NavLink>
-                </li>
-                <li>
-                  <ProfileAvatar onClick={toggle}>
-                    <img
-                      src="http://unsplash.it/30/30?gravity=center"
-                      alt="Random unsplash img"
-                      width="30"
-                      height="30"
-                    />
-                  </ProfileAvatar>
                 </li>
               </>
             ) : (
@@ -86,6 +68,11 @@ const Navbar = ({ toggle, sidebarIsOpen }) => {
                 </li>
               </>
             )}
+            <li>
+              <MobileIcon>
+                <FaSearch />
+              </MobileIcon>
+            </li>
           </NavMenu>
         </NavContainer>
       </Nav>

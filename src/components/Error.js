@@ -1,18 +1,13 @@
-import Proptypes from 'prop-types';
-const Error = ({ errors }) => {
-  return (
-    <div>
-      {typeof errors === 'string' ? (
-        <p>{errors}</p>
-      ) : (
-        errors.map((error, i) => <p key={`${error}${i}`}>{error}</p>)
-      )}
-    </div>
-  );
-};
+import PropTypes from 'prop-types';
+
+const Error = ({ errors }) => (
+  <div>
+    {typeof errors === 'string' ? <p>{errors}</p> : errors.map(error => <p key={error}>{error}</p>)}
+  </div>
+);
 
 Error.propTypes = {
-  errors: Proptypes.any.isRequired,
+  errors: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
 };
 
 export default Error;

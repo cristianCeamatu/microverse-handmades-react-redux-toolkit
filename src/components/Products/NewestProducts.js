@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
 // Components
-import Product from '../../features/catalog/Product';
+import Product from './Product';
 
 const NewestProducts = () => {
-  const products = useSelector((state) => state.catalog.products);
+  const products = useSelector(state => state.catalog.products);
   const productsItems = products
     .slice(0, 4)
-    .map((product) => <Product key={product.id} product={product} />);
+    .map(product => <Product key={product.id} product={product} />);
 
   return (
     <div>

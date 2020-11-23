@@ -1,55 +1,49 @@
+/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const base_uri =
-  'https://handmades-rails-api-backend.herokuapp.com/api/v1/auth';
-// const base_uri = 'http://localhost:3000/api/v1/auth';
+const baseUri = 'https://handmades-rails-api-backend.herokuapp.com/api/v1/auth';
+// const baseUri = 'http://localhost:3000/api/v1/auth';
 
-export const login = createAsyncThunk(
-  'user/login',
-  async (data, { rejectWithValue }) => {
-    try {
-      const response = await axios.post(`${base_uri}/sign_in`, data);
-      const {
-        data: { data: user },
-        headers,
-      } = response;
-      const header = {
-        'access-token': headers['access-token'],
-        client: headers.client,
-        uid: headers.uid,
-      };
-      localStorage.setItem('currentUser', JSON.stringify({ user, header }));
+export const login = createAsyncThunk('user/login', async (data, { rejectWithValue }) => {
+  try {
+    const response = await axios.post(`${baseUri}/sign_in`, data);
+    const {
+      data: { data: user },
+      headers,
+    } = response;
+    const header = {
+      'access-token': headers['access-token'],
+      client: headers.client,
+      uid: headers.uid,
+    };
+    localStorage.setItem('currentUser', JSON.stringify({ user, header }));
 
-      return { user, header };
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
+    return { user, header };
+  } catch (error) {
+    return rejectWithValue(error.response.data);
   }
-);
+});
 
-export const signUp = createAsyncThunk(
-  'user/signUp',
-  async (data, { rejectWithValue }) => {
-    try {
-      const response = await axios.post(base_uri, data);
-      const {
-        data: { data: user },
-        headers,
-      } = response;
-      const header = {
-        'access-token': headers['access-token'],
-        client: headers.client,
-        uid: headers.uid,
-      };
-      localStorage.setItem('currentUser', JSON.stringify({ user, header }));
+export const signUp = createAsyncThunk('user/signUp', async (data, { rejectWithValue }) => {
+  try {
+    const response = await axios.post(baseUri, data);
+    const {
+      data: { data: user },
+      headers,
+    } = response;
+    const header = {
+      'access-token': headers['access-token'],
+      client: headers.client,
+      uid: headers.uid,
+    };
+    localStorage.setItem('currentUser', JSON.stringify({ user, header }));
 
-      return { user, header };
-    } catch (error) {
-      return rejectWithValue(error.response.data.errors.full_messages);
-    }
+    return { user, header };
+  } catch (error) {
+    return rejectWithValue(error.response.data.errors.full_messages);
   }
-);
+});
 
 export const userSlice = createSlice({
   name: 'user',
@@ -60,7 +54,7 @@ export const userSlice = createSlice({
     loggedIn: false,
   },
   reducers: {
-    logout: (state) => {
+    logout: state => {
       localStorage.removeItem('currentUser');
       state.user = {};
       state.headers = {};
@@ -72,7 +66,7 @@ export const userSlice = createSlice({
     },
   },
   extraReducers: {
-    [login.pending]: (state) => {
+    [login.pending]: state => {
       state.loaders.login = true;
       state.errors.login = false;
     },
@@ -86,7 +80,7 @@ export const userSlice = createSlice({
       state.errors.login = action.payload.errors;
       state.loaders.login = false;
     },
-    [signUp.pending]: (state) => {
+    [signUp.pending]: state => {
       state.loaders.signUp = true;
       state.errors.signUp = false;
     },
@@ -105,6 +99,6 @@ export const userSlice = createSlice({
 
 export const { logout, loginFromStorage } = userSlice.actions;
 
-export const selectCount = (state) => state.counter.value;
+export const selectCount = state => state.counter.value;
 
 export default userSlice.reducer;

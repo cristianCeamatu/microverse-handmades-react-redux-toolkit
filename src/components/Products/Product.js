@@ -4,20 +4,14 @@ import ReactStars from 'react-rating-stars-component';
 // Components
 import DeleteButton from './DeleteButton';
 // Styles
-import { ProductContainer } from './Styles.styled.js';
+import { ProductContainer } from './Styles.styled';
 
 const Product = ({ product }) => {
   // Props
   const {
-    id,
-    name,
-    price,
-    usedFor,
-    user_id: userId,
-    image_url: imageUrl,
-    ratings,
+    id, name, price, usedFor, user_id: userId, image_url: imageUrl, ratings,
   } = product;
-  const rating = ratings ? ratings : Math.floor(Math.random() * Math.floor(6));
+  const rating = ratings || Math.floor(Math.random() * Math.floor(6));
 
   return (
     <ProductContainer>
@@ -33,7 +27,7 @@ const Product = ({ product }) => {
             <ReactStars
               count={5}
               value={rating}
-              isHalf={true}
+              isHalf
               edit={false}
               size={20}
               activeColor="#ffd700"
@@ -41,8 +35,14 @@ const Product = ({ product }) => {
           </div>
 
           <div>
-            <p>$ {(+price).toFixed(2)}</p>
-            <p>Usage: {usedFor}</p>
+            <p>
+              $
+              {(+price).toFixed(2)}
+            </p>
+            <p>
+              Usage:
+              {usedFor}
+            </p>
           </div>
         </div>
       </Link>
