@@ -1,12 +1,22 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ReactStars from 'react-rating-stars-component';
+// Components
+import DeleteButton from './DeleteButton';
 // Styles
 import { ProductContainer } from './Styles.styled.js';
 
 const Product = ({ product }) => {
   // Props
-  const { id, name, price, usedFor, image_url: imageUrl, ratings } = product;
+  const {
+    id,
+    name,
+    price,
+    usedFor,
+    user_id: userId,
+    image_url: imageUrl,
+    ratings,
+  } = product;
   const rating = ratings ? ratings : Math.floor(Math.random() * Math.floor(6));
 
   return (
@@ -14,6 +24,7 @@ const Product = ({ product }) => {
       <Link to={`/products/${id}`}>
         <div className="image">
           <img src={imageUrl} alt="Product" />
+          <DeleteButton userId={userId} id={id} />
         </div>
 
         <div className="flex">

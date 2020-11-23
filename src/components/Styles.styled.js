@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaPlus } from 'react-icons/fa';
 
 import background from '../assets/showcase.jpg';
 
@@ -181,9 +180,4 @@ export const Account = styled.main`
       }
     }
   }
-`;
-
-export const PlusIcon = styled(FaPlus)`
-  margin-left: auto;
-  color: rgb(233, 84, 6);
 `;

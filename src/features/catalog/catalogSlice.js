@@ -135,7 +135,6 @@ export const catalogSlice = createSlice({
             : (product.favorited_by = product.favorited_by.filter(
                 (favorite) => favorite.id !== currentUser.id
               ));
-          state.product = product;
           return product;
         }
         return product;

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import { FaTrashAlt } from 'react-icons/fa';
 // Actions
 import { deleteProduct } from '../../features/catalog/catalogSlice';
 
@@ -17,20 +18,23 @@ const DeleteButton = ({ id, userId }) => {
   const dispatch = useDispatch();
   const handleDelete = (e) => {
     e.preventDefault();
-    dispatch(deleteProduct(id));
+    const response = window.confirm(
+      'Are you sure you want to delete the item?'
+    );
+    if (response) dispatch(deleteProduct(id));
   };
 
   return (
     <>
       {deleteError ? <p>{deleteError}</p> : null}
       {currentUser.id === userId ? (
-        <div>
+        <div className="delete-button">
           <button
             type="button"
             onClick={handleDelete}
             disabled={deleteLoading && deleteLoading === id}
           >
-            X
+            <FaTrashAlt />
           </button>
         </div>
       ) : null}

@@ -11,6 +11,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 import Dashboard from './Dashboard';
 import UserDetails from './UserDetails';
+import Help from './Help';
 // Actions
 import { loginFromStorage } from '../features/user/userSlice';
 
@@ -52,6 +53,7 @@ const Main = () => {
           {loggedIn ? <UserDetails /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/products" component={Products} />
+        <Route exact path="/help" component={Help} />
         <Route exact path="/products/:id" component={ProductDetails} />
         <Route path="*" component={Home} />
       </Switch>

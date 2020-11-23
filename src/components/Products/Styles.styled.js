@@ -47,9 +47,28 @@ export const ProductContainer = styled.article`
     max-width: 100%;
     height: 85%;
     max-height: 480px;
+    position: relative;
 
     img {
       height: 100%;
+    }
+
+    .delete-button {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+
+      button {
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        & > :first-child {
+          font-size: 1.5rem;
+          color: red;
+        }
+      }
     }
   }
 
