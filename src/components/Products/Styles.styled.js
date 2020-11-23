@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export const ProductsContainer = styled.section`
   height: 80vh;
@@ -25,8 +26,7 @@ export const ProductsContainer = styled.section`
       display: none;
     }
 
-    .text-center {
-      position: fixed;
+    .no-products {
       text-align: center;
       width: 100%;
     }
@@ -210,4 +210,14 @@ export const FavoriteIcon = styled(FaRegHeart)`
 
 export const UnfavoriteIcon = styled(FaHeart)`
   font-size: 2rem;
+`;
+
+export const Button = styled(Link)`
+  border-radius: 50px;
+  padding: 5px 20px;
+  background: rgb(233, 84, 6);
+  margin-right: 10px;
+  font-size: 0.75rem;
+  color: #fff;
+  text-transform: uppercase;
 `;

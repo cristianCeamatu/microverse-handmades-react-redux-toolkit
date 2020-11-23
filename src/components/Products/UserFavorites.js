@@ -4,7 +4,11 @@ import Loading from '../Loading';
 import Error from '../Error';
 import Product from './Product';
 // Styles
-import { ProductsContainer, SliderPaginationContainer } from './Styles.styled';
+import {
+  ProductsContainer,
+  SliderPaginationContainer,
+  Button,
+} from './Styles.styled';
 
 const UserFavorites = () => {
   // State
@@ -28,9 +32,14 @@ const UserFavorites = () => {
         <Error errors={error} />
       ) : (
         <div className="slider">
-          {productItems.length === 0
-            ? 'No products favorited by you.'
-            : productItems}
+          {productItems.length === 0 ? (
+            <div class="no-products">
+              <p>No crafts favorited by you.</p>
+              <Button to="/products"> Browse crafts</Button>
+            </div>
+          ) : (
+            productItems
+          )}
         </div>
       )}
 

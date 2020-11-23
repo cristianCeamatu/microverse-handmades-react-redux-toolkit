@@ -7,7 +7,11 @@ import Product from './Product';
 // Actions
 import { getProducts } from '../../features/catalog/catalogSlice';
 // Styles
-import { ProductsContainer, SliderPaginationContainer } from './Styles.styled';
+import {
+  ProductsContainer,
+  SliderPaginationContainer,
+  Button,
+} from './Styles.styled';
 
 const AllProducts = () => {
   // State
@@ -35,9 +39,14 @@ const AllProducts = () => {
         <Error errors={error} />
       ) : (
         <div className="slider">
-          {productItems.length === 0
-            ? 'No products added by you.'
-            : productItems}
+          {productItems.length === 0 ? (
+            <div className="no-products">
+              <p>No crafts added by you.</p>
+              <Button to="/dashboard">Add crafts</Button>
+            </div>
+          ) : (
+            productItems
+          )}
         </div>
       )}
 
