@@ -53,7 +53,7 @@ const ShowProduct = ({ id }) => {
           {currentUser.id ? (
             <div className="likes">
               <p>
-                Likes
+                Likes &nbsp;
                 {favoritedBy.length}
               </p>
               <FavoriteButton className="favorite" id={+id} favoritedBy={favoritedBy} />
@@ -83,7 +83,7 @@ const ShowProduct = ({ id }) => {
               </div>
             </div>
 
-            <div>
+            <div className="price">
               <p>
                 $
                 {(+price).toFixed(2)}
