@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const baseUri = 'https://handmades-rails-api-backend.herokuapp.com/api/v1/auth';
-// const baseUri = 'http://localhost:3000/api/v1/auth';
 
 export const login = createAsyncThunk('user/login', async (data, { rejectWithValue }) => {
   try {

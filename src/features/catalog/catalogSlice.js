@@ -1,9 +1,8 @@
-/* eslint-disable no-param-reassign, no-unused-expressions */
+/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const baseUri = 'https://handmades-rails-api-backend.herokuapp.com/items';
-// const baseUri = 'http://localhost:3000/items';
 
 export const getProducts = createAsyncThunk('catalog/getProducts', async () => {
   const response = await axios.get(baseUri);
@@ -113,20 +112,22 @@ export const catalogSlice = createSlice({
       const { id, type, currentUser } = action.payload;
       state.products.map(product => {
         if (product.id === id) {
-          type === 'favorite'
-            ? product.favorited_by.push(currentUser)
-            : (product.favorited_by = product.favorited_by.filter(
+          if (type === 'favorite') {
+            product.favorited_by.push(currentUser);
+            state.product.favorited_by.push(currentUser);
+          } else {
+            product.favorited_by = product.favorited_by.filter(
               favorite => favorite.id !== currentUser.id,
-            ));
+            );
+            state.product.favorited_by = state.product.favorited_by.filter(
+              favorite => favorite.id !== currentUser.id,
+            );
+          }
+
           return product;
         }
         return product;
       });
-      type === 'favorite'
-        ? state.product.favorited_by.push(currentUser)
-        : (state.product.favorited_by = state.product.favorited_by.filter(
-          favorite => favorite.id !== currentUser.id,
-        ));
       state.loaders.favorite = false;
       state.errors.favorite = false;
     },

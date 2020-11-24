@@ -27,6 +27,14 @@
 
 ## Rails Backend [github link](https://github.com/cristianCeamatu/microverse-handmades-rails-backend-api)
 
+## Project specifications
+
+Project design received from Microverse [here](<https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App)>), credit at the [bottom](#credits) of this README
+
+## Development
+
+I used Github projects for developing the app, you can see the sprints [here](https://github.com/users/cristianCeamatu/projects/5) for both Backend and Frontend.
+
 ## Built With
 
 - React.js
@@ -106,3 +114,4 @@ This project is licensed by Microverse and the Odin Project
 
 Photos from Vlada Karpovich at Pexels
 Video created by Daisy Anderson at Pexels
+[Alexey Savitskiy](<https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App)>) for the design on [behance](<https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App)>)
