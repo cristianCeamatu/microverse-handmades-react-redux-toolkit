@@ -57,7 +57,7 @@ const Product = ({ product }) => {
             />
           </div>
 
-          <div>
+          <div className="flex-right">
             <p>${(+price).toFixed(2)}</p>
             <p>
               Usage:

@@ -111,7 +111,7 @@ export const ProductContainer = styled.article`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 5px 10px;
 
     h3 {
       margin-bottom: -5px;
