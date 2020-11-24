@@ -19,8 +19,8 @@ const AllProducts = () => {
   // Effects
   const dispatch = useDispatch();
   useEffect(() => {
-    if (products.length === 0) dispatch(getProducts());
-  }, [dispatch, products]);
+    dispatch(getProducts());
+  }, [dispatch]);
 
   // Utils
   const productItems = [...products]
