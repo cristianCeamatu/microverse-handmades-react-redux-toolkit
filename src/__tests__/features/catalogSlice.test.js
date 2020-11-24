@@ -5,14 +5,7 @@ import { render, cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import store from '../../app/store';
 import App from '../../App';
-import { login, logout } from '../../features/user/userSlice';
-import {
-  getProducts,
-  getProduct,
-  addProduct,
-  deleteProduct,
-  favorite,
-} from '../../features/catalog/catalogSlice';
+import { getProducts, getProduct } from '../../features/catalog/catalogSlice';
 
 afterEach(() => {
   cleanup();

@@ -116,8 +116,8 @@ export const catalogSlice = createSlice({
           type === 'favorite'
             ? product.favorited_by.push(currentUser)
             : (product.favorited_by = product.favorited_by.filter(
-                favorite => favorite.id !== currentUser.id,
-              ));
+              favorite => favorite.id !== currentUser.id,
+            ));
           return product;
         }
         return product;
@@ -125,8 +125,8 @@ export const catalogSlice = createSlice({
       type === 'favorite'
         ? state.product.favorited_by.push(currentUser)
         : (state.product.favorited_by = state.product.favorited_by.filter(
-            favorite => favorite.id !== currentUser.id,
-          ));
+          favorite => favorite.id !== currentUser.id,
+        ));
       state.loaders.favorite = false;
       state.errors.favorite = false;
     },

@@ -84,7 +84,10 @@ const ShowProduct = ({ id }) => {
             </div>
 
             <div className="price">
-              <p>${(+price).toFixed(2)}</p>
+              <p>
+                $
+                {(+price).toFixed(2)}
+              </p>
               <p>
                 Usage:
                 {usedFor}
