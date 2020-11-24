@@ -106,7 +106,7 @@ const ShowProduct = ({ id }) => {
           </p>
         </div>
 
-        <a href="/">Contact crafter</a>
+        <a href="mailto:example@example.com">Contact crafter</a>
       </>
     </ShowProductContainer>
   );
