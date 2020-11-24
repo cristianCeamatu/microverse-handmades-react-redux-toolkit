@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 import ReactStars from 'react-rating-stars-component';
 // Components
 import FavoriteButton from './FavoriteButton';
+import DeleteButton from './DeleteButton';
 import Loading from '../Loading';
 import Error from '../Error';
 // Utils
@@ -31,6 +32,7 @@ const ShowProduct = ({ id }) => {
     created_at: createdAt,
     updated_at: updatedAt,
     favorited_by: favoritedBy,
+    user_id: userId,
   } = product;
   const rating = ratings || Math.floor(Math.random() * Math.floor(6));
 
@@ -51,13 +53,16 @@ const ShowProduct = ({ id }) => {
       <>
         <div className="image">
           {currentUser.id ? (
-            <div className="likes">
-              <p>
-                Likes &nbsp;
-                {favoritedBy.length}
-              </p>
-              <FavoriteButton className="favorite" id={+id} favoritedBy={favoritedBy} />
-            </div>
+            <>
+              <DeleteButton userId={userId} id={+id} />
+              <div className="likes">
+                <p>
+                  Likes &nbsp;
+                  {favoritedBy.length}
+                </p>
+                <FavoriteButton className="favorite" id={+id} favoritedBy={favoritedBy} />
+              </div>
+            </>
           ) : null}
           <img src={imageUrl} alt="Product" />
 
@@ -84,10 +89,7 @@ const ShowProduct = ({ id }) => {
             </div>
 
             <div className="price">
-              <p>
-                $
-                {(+price).toFixed(2)}
-              </p>
+              <p>${(+price).toFixed(2)}</p>
               <p>
                 Usage:
                 {usedFor}

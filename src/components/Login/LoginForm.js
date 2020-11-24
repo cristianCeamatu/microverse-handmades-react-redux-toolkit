@@ -13,9 +13,7 @@ const LoginForm = () => {
   const loginError = useSelector(state => state.user.errors.login);
   // Effects
   const dispatch = useDispatch();
-  const {
-    register, handleSubmit, errors, reset,
-  } = useForm();
+  const { register, handleSubmit, errors, reset } = useForm();
   const onSubmit = data => {
     dispatch(login(data));
     reset();
@@ -27,6 +25,7 @@ const LoginForm = () => {
         <input
           name="email"
           placeholder="Email"
+          defaultValue="demoUser@example.com"
           ref={register({
             required: {
               value: true,
@@ -49,6 +48,7 @@ const LoginForm = () => {
           type="password"
           name="password"
           placeholder="Password"
+          defaultValue="12345678"
           ref={register({
             required: {
               value: true,

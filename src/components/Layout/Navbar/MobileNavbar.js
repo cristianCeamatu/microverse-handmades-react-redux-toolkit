@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { FaArrowLeft, FaBars, FaSearch } from 'react-icons/fa';
@@ -15,9 +15,7 @@ import {
   DownloadLink,
 } from './NavElements';
 
-const MobileNavbar = ({
-  toggle, sidebarIsOpen, productPage, title,
-}) => {
+const MobileNavbar = ({ toggle, sidebarIsOpen, productPage, title }) => {
   // State
   const loggedIn = useSelector(state => state.user.loggedIn);
   const productName = useSelector(state => state.catalog.product.name);
@@ -25,14 +23,20 @@ const MobileNavbar = ({
   const history = useHistory();
 
   // Effects
-  document.addEventListener('scroll', () => {
-    const scrolledY = document.scrollingElement.scrollTop;
-    if (scrolledY > 80 && !scrolled) {
-      setScrolled(true);
-    } else if (scrolledY < 80 && scrolled) {
-      setScrolled(false);
-    }
-  });
+  useEffect(() => {
+    const scrollEvent = document.addEventListener('scroll', () => {
+      const scrolledY = document.scrollingElement.scrollTop;
+      if (scrolledY > 80 && !scrolled) {
+        setScrolled(true);
+      } else if (scrolledY < 80 && scrolled) {
+        setScrolled(false);
+      }
+    });
+    return () => {
+      document.removeEventListener('scroll', scrollEvent);
+    };
+  }, [scrolled]);
+
   const goBack = e => {
     e.preventDefault();
     history.goBack();

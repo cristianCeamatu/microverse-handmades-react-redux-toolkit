@@ -5,7 +5,7 @@ import MobileLayout from '../Layout/MobileLayout';
 import { MobileContainer } from '../Styles.styled';
 
 const Dashboard = () => (
-  <MobileLayout title="Dashboard">
+  <MobileLayout title="Dashboard" productPage={false}>
     <MobileContainer>
       <div className="wrapper">
         <header>
