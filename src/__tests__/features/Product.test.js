@@ -13,21 +13,6 @@ describe('Product page', () => {
     cleanup();
   });
 
-  test('has a loading text on initial render', async () => {
-    const history = createMemoryHistory();
-    history.push('/products/50');
-
-    const { getByText } = render(
-      <Provider store={store}>
-        <Router history={history}>
-          <App />
-        </Router>
-      </Provider>,
-    );
-
-    expect(getByText(/loading/i)).toBeTruthy();
-  });
-
   test('display a product image, usage and contact crafter button', async () => {
     const history = createMemoryHistory();
     history.push('/products/50');

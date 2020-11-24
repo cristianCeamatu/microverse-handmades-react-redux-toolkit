@@ -30,21 +30,6 @@ describe('Products page', () => {
     expect(getByText(/total/i)).toBeTruthy();
   });
 
-  test('has a loading text on initial render', async () => {
-    const history = createMemoryHistory();
-    history.push('/products');
-
-    const { getByText } = render(
-      <Provider store={store}>
-        <Router history={history}>
-          <App />
-        </Router>
-      </Provider>,
-    );
-
-    expect(getByText(/loading/i)).toBeTruthy();
-  });
-
   test('has a list of products after the load', async () => {
     const history = createMemoryHistory();
     history.push('/products');
