@@ -15,7 +15,9 @@ import {
   DownloadLink,
 } from './NavElements';
 
-const MobileNavbar = ({ toggle, sidebarIsOpen, productPage, title }) => {
+const MobileNavbar = ({
+  toggle, sidebarIsOpen, productPage, title,
+}) => {
   // State
   const loggedIn = useSelector(state => state.user.loggedIn);
   const productName = useSelector(state => state.catalog.product.name);

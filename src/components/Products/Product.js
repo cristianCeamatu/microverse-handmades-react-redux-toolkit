@@ -58,7 +58,10 @@ const Product = ({ product }) => {
           </div>
 
           <div className="flex-right">
-            <p>${(+price).toFixed(2)}</p>
+            <p>
+              $
+              {(+price).toFixed(2)}
+            </p>
             <p>
               Usage:
               {` ${usedFor}`}

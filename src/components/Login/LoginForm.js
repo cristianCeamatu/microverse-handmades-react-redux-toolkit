@@ -13,7 +13,9 @@ const LoginForm = () => {
   const loginError = useSelector(state => state.user.errors.login);
   // Effects
   const dispatch = useDispatch();
-  const { register, handleSubmit, errors, reset } = useForm();
+  const {
+    register, handleSubmit, errors, reset,
+  } = useForm();
   const onSubmit = data => {
     dispatch(login(data));
     reset();
