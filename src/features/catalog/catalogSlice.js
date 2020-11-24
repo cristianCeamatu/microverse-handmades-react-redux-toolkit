@@ -51,14 +51,6 @@ export const catalogSlice = createSlice({
     filters: {},
     product: { user: {}, favorited_by: [] },
   },
-  reducers: {
-    decrement: state => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
-    },
-  },
   extraReducers: {
     [getProducts.pending]: state => {
       state.loaders.loadingProducts = true;
@@ -124,8 +116,8 @@ export const catalogSlice = createSlice({
           type === 'favorite'
             ? product.favorited_by.push(currentUser)
             : (product.favorited_by = product.favorited_by.filter(
-              favorite => favorite.id !== currentUser.id,
-            ));
+                favorite => favorite.id !== currentUser.id,
+              ));
           return product;
         }
         return product;
@@ -133,8 +125,8 @@ export const catalogSlice = createSlice({
       type === 'favorite'
         ? state.product.favorited_by.push(currentUser)
         : (state.product.favorited_by = state.product.favorited_by.filter(
-          favorite => favorite.id !== currentUser.id,
-        ));
+            favorite => favorite.id !== currentUser.id,
+          ));
       state.loaders.favorite = false;
       state.errors.favorite = false;
     },
@@ -144,7 +136,5 @@ export const catalogSlice = createSlice({
     },
   },
 });
-
-export const { decrement, incrementByAmount } = catalogSlice.actions;
 
 export default catalogSlice.reducer;

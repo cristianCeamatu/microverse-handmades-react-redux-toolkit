@@ -99,6 +99,4 @@ export const userSlice = createSlice({
 
 export const { logout, loginFromStorage } = userSlice.actions;
 
-export const selectCount = state => state.counter.value;
-
 export default userSlice.reducer;

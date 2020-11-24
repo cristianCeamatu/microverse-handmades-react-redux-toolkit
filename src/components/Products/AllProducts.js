@@ -29,7 +29,7 @@ const AllProducts = () => {
       {loading ? <Loading /> : null}
       {error ? <Error errors={error} /> : null}
       <div className="slider">
-        {productItems.length === 0 ? (
+        {productItems.length === 0 && !loading && !error ? (
           <p className="text-center">No products in the database.</p>
         ) : (
           productItems

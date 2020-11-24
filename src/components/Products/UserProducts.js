@@ -32,7 +32,7 @@ const AllProducts = () => {
       {loading ? <Loading /> : null}
       {error ? <Error errors={error} /> : null}
       <div className="slider">
-        {productItems.length === 0 ? (
+        {productItems.length === 0 && !loading && !error ? (
           <div className="no-products">
             <p>No crafts added by you.</p>
             <Button to="/dashboard">Add crafts</Button>

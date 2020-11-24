@@ -84,10 +84,7 @@ const ShowProduct = ({ id }) => {
             </div>
 
             <div className="price">
-              <p>
-                $
-                {(+price).toFixed(2)}
-              </p>
+              <p>${(+price).toFixed(2)}</p>
               <p>
                 Usage:
                 {usedFor}
@@ -104,7 +101,7 @@ const ShowProduct = ({ id }) => {
           </p>
         </div>
 
-        <a href="/">Apply to rent</a>
+        <a href="/">Contact crafter</a>
       </>
     </ShowProductContainer>
   );
