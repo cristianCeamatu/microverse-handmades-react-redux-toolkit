@@ -77,7 +77,8 @@ export const userSlice = createSlice({
       state.errors.login = false;
     },
     [login.rejected]: (state, action) => {
-      state.errors.login = action.payload.errors;
+      const serverError = 'Server error, please try again or contact the administrator';
+      state.errors.login = action.payload ? action.payload.errors : serverError;
       state.loaders.login = false;
     },
     [signUp.pending]: state => {
@@ -91,7 +92,8 @@ export const userSlice = createSlice({
       state.errors.signUp = false;
     },
     [signUp.rejected]: (state, action) => {
-      state.errors.signUp = action.payload;
+      const serverError = 'Server error, please try again or contact the administrator';
+      state.errors.login = action.payload ? action.payload : serverError;
       state.loaders.signUp = false;
     },
   },

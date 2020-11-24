@@ -17,7 +17,7 @@
 - Guests and users can view a catalog of crafts added by users.
 - Logged in users can like/favorite crafts, this will automatically add the items to the favorite list and increase the like count for the product.
 - Users can click on a product to be routed to the product show page where they can see extra details and contact the creator.
-- All the data manipulation and login system is handle by a Rails Backend API
+- All the data manipulation and login system is handled by a Rails Backend API
 
 ## This web app is live, you can check it here: [Live demo](https://handmades-react-redux-toolkit.herokuapp.com/)
 
