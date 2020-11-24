@@ -4,18 +4,18 @@
 
 ## We recommend visiting this web app from a mobile device, where not possible you can use the mobile view in your browser
 
-> The <b>Crafts</b> mobile web app presents the worlds finest Crafts from all around the world. All users can create an account and add their creations, view/like other users crafts, and contact the creators if interested in their work.
+> The <b>Crafts</b> mobile web app presents the world's finest Crafts from all around the world. All users can create an account and add their creations, view/like other user's crafts, and contact the creators if interested in their work.
 > <br>
 > The APP is created with the latest industry standards using React.js and Redux Toolkit
 > <br>
-> API Backend used for data manipulation: [Rails Handmaded Backend](https://handmades-rails-api-backend.herokuapp.com/) > <br>
+> API Backend used for data manipulation: [Rails Handmades Backend](https://handmades-rails-api-backend.herokuapp.com/) <br>
 > The app is fully mobile responsive and tested using Jest and the React Testing Library.
 > <br>
 
 ## App functionality
 
 - Guests and users can view a catalog of crafts added by users.
-- Logged in users can like/favorite crafts, this will automatticaly add the items to the favorite list and increase the like count for the product.
+- Logged in users can like/favorite crafts, this will automatically add the items to the favorite list and increase the like count for the product.
 - Users can click on a product to be routed to the product show page where they can see extra details and contact the creator.
 - All the data manipulation and login system is handle by a Rails Backend API
 
@@ -33,6 +33,8 @@
 - Axios
 - Styled components
 - Moment.js
+- Ruby on Rails for the Backend API
+- devise_token_auth for the login functionality
 
 ## Testing
 
