@@ -32,7 +32,7 @@ const Product = ({ product }) => {
           <img src={imageUrl} alt="Product" />
           {currentUser.id ? (
             <>
-              <DeleteButton userId={userId} id={id} />
+              <DeleteButton userId={userId} id={+id} />
               <div className="likes">
                 <p>
                   Likes &nbsp;

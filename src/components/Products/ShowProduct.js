@@ -27,12 +27,12 @@ const ShowProduct = ({ id }) => {
     price,
     usedFor,
     ratings,
+    user_id: userId,
     image_url: imageUrl,
     user_name: userName,
     created_at: createdAt,
     updated_at: updatedAt,
     favorited_by: favoritedBy,
-    user_id: userId,
   } = product;
   const rating = ratings || Math.floor(Math.random() * Math.floor(6));
 
@@ -54,7 +54,7 @@ const ShowProduct = ({ id }) => {
         <div className="image">
           {currentUser.id ? (
             <>
-              <DeleteButton userId={userId} id={+id} />
+              {loading || error ? null : <DeleteButton userId={userId} id={+id} />}
               <div className="likes">
                 <p>
                   Likes &nbsp;

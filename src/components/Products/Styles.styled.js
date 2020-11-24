@@ -243,7 +243,8 @@ export const ShowProductContainer = styled.section`
 
         h3 {
           margin-bottom: -10px;
-          font-size: 0.75rem;
+          font-size: 0.875rem;
+          font-weight: bold;
         }
       }
     }
@@ -255,6 +256,7 @@ export const ShowProductContainer = styled.section`
       & > :first-child {
         margin-bottom: -5px;
         font-size: 0.875rem;
+        font-weight: bold;
       }
     }
   }
@@ -262,7 +264,12 @@ export const ShowProductContainer = styled.section`
   .description {
     padding: 15px 30px;
 
+    p {
+      font-size: 0.875rem;
+    }
+
     .date {
+      margin-top: 15px;
       text-align: right;
       font-style: italic;
     }
