@@ -34,7 +34,7 @@ export const Container = styled.section`
     }
     img:nth-child(3) {
       top: 23px;
-      left: calc(50% - 160px);
+      left: calc(50% - 140px);
       z-index: 3;
     }
     img:nth-child(4) {

@@ -38,15 +38,15 @@ const UserDetails = () => {
             </li>
             <li>
               Name:
-              {name}
+              {` ${name}`}
             </li>
             <li>
               Username:
-              {nickname}
+              {` ${nickname}`}
             </li>
             <li>
               Email:
-              {email}
+              {` ${email}`}
             </li>
             <li className="logout">
               <a href="/" onClick={handleLogout}>
