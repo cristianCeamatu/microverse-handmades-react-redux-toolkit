@@ -19,8 +19,6 @@ render(
   </Provider>,
 );
 
-// await store.dispatch(login({ email: 'unitTest@example.com', password: '12345678' }));
-
 describe('catalogSlice async actions and initial state', () => {
   test('has no products in the array in the initial fase', () => {
     const { products } = store.getState().catalog;
@@ -40,7 +38,7 @@ describe('catalogSlice async actions and initial state', () => {
   });
 
   test('getProduct fetches a Product from the API by the ID received as a parameter and populates the state product object', async () => {
-    const id = 50;
+    const id = 54;
     await store.dispatch(getProduct(id));
     const { product } = store.getState().catalog;
     expect(product.id).toStrictEqual(id);
