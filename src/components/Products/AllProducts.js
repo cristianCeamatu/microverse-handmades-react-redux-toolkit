@@ -18,8 +18,8 @@ const AllProducts = () => {
   // Effects
   const dispatch = useDispatch();
   useEffect(() => {
-    if (products.length === 0) dispatch(getProducts());
-  }, [dispatch, products]);
+    dispatch(getProducts());
+  }, [dispatch]);
 
   // Utils
   const productItems = [...products].map(product => <Product key={product.id} product={product} />);
@@ -29,7 +29,7 @@ const AllProducts = () => {
       {loading ? <Loading /> : null}
       {error ? <Error errors={error} /> : null}
       <div className="slider">
-        {productItems.length === 0 && !loading && !error ? (
+        {productItems.length === 0 ? (
           <p className="text-center">No products in the database.</p>
         ) : (
           productItems
