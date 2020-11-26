@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import store from '../../app/store';
 import App from '../../App';
 
+jest.setTimeout(20000);
 describe('Products page', () => {
   afterEach(() => {
     cleanup();

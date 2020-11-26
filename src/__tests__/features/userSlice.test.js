@@ -11,6 +11,7 @@ afterEach(() => {
   cleanup();
 });
 
+jest.setTimeout(20000);
 render(
   <Provider store={store}>
     <Router>
