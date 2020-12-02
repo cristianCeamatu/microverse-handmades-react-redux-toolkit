@@ -1,68 +1,117 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+![Hireable](https://img.shields.io/badge/Hireable-yes-success) ![](https://img.shields.io/badge/Mobile--responsive-yes-green) ![](https://img.shields.io/badge/-Microverse%20projects-blueviolet)
 
-## Available Scripts
+# Handcrafts | Convert your hobby to a bussiness
 
-In the project directory, you can run:
+## We recommend visiting this web app from a mobile device, where not possible you can use the mobile view in your browser
 
-### `yarn start`
+> The <b>Crafts</b> mobile web app presents the world's finest Crafts from all around the world. All users can create an account and add their creations, view/like other user's crafts, and contact the creators if interested in their work.
+> <br>
+> The APP is created with the latest industry standards using React.js and Redux Toolkit
+> <br>
+> API Backend used for data manipulation: [Rails Handmades Backend](https://handmades-rails-api-backend.herokuapp.com/) <br>
+> The app is fully mobile responsive and tested using Jest and the React Testing Library.
+> <br>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## App functionality
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Guests and users can view a catalog of crafts added by users.
+- Logged in users can like/favorite crafts, this will automatically add the items to the favorite list and increase the like count for the product.
+- Users can click on a product to be routed to the product show page where they can see extra details and contact the creator.
+- All the data manipulation and login system is handled by a Rails Backend API
 
-### `yarn test`
+## This web app is live, you can check it here: [Live demo](https://handmades-react-redux-toolkit.herokuapp.com/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshot of the app.
 
-### `yarn build`
+![image](readme-assets/app-screenshot.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Rails Backend [github link](https://github.com/cristianCeamatu/microverse-handmades-rails-backend-api)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Project specifications
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Project design received from Microverse [here](<https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App)>), credit at the [bottom](#credits) of this README
 
-### `yarn eject`
+## Development
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I used Github projects for developing the app, you can see the sprints [here](https://github.com/users/cristianCeamatu/projects/5) for both Backend and Frontend.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- React.js
+- create-react-app
+- Redux Toolkit
+- Axios
+- Styled components
+- Moment.js
+- Ruby on Rails for the Backend API
+- devise_token_auth for the login functionality
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Testing
 
-## Learn More
+- Jest
+- React Testing Library
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## You can check other react that I built:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Recruiting Agency Website](https://aurasjobs-mern.herokuapp.com/)
+- [Bookstore - React Redux Toolkit with Rails API backend](https://redux-bookstore199.herokuapp.com/)
+- [ReactRedux - Canon Calculator clone](https://codepen.io/crisDevMM/full/ZjqKza)
 
-### Code Splitting
+## Prerequisities
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+To get this project up and running locally, you must have [node](https://nodejs.org/en/) and [yarn](https://yarnpkg.com/) installed locally.
 
-### Analyzing the Bundle Size
+## Getting Started
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+**To get this project set up on your local machine, follow these simple steps:**
 
-### Making a Progressive Web App
+**Step 1**<br>
+Navigate through the local folder where you want to clone the repository and run<br>
+`git clone https://github.com/cristianCeamatu/microverse-handmades-react-redux-toolkit`. It will clone the repo to your local folder.<br>
+**Step 2**<br>
+Run `cd microverse-handmades-react-redux-toolkit`<br>
+**Step 3**<br>
+Run `yarn install` to install the npm packages from the `package.json` file.<br>
+**Step 4**<br>
+Run `yarn start` to start the webpack server, you can now navigate to `http://localhost:3000` to view the app. The server refreshes the app every time you make a change to a file used by it.<br>
+**Step 5**<br>
+Most important, enjoy the app!<br>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Tests
 
-### Advanced Configuration
+1. Open Terminal
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+2. Install dependencies (only if you did not install them previously):
 
-### Deployment
+   `yarn install`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+3. Run the tests with the command:
 
-### `yarn build` fails to minify
+   `yarn test`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Authors
+
+👤 **Cristian Viorel Ceamatu**
+
+- Email: [cristian.ceamatu@gmail.com](cristian.ceamatu@gmail.com)
+- Github: [https://github.com/cristianCeamatu](https://github.com/cristianCeamatu)
+- Twitter: [https://twitter.com/CristianCeamatu](https://twitter.com/CristianCeamatu)
+- Linkedin: [https://www.linkedin.com/in/ceamatu-cristian/](https://www.linkedin.com/in/ceamatu-cristian/)
+
+## 🤝 Contributing
+
+Our favourite contributions are those that help us improve the project, whether with a contribution, an issue, or a feature request!
+
+## Show your support
+
+If you've read this far....give us a ⭐️!
+
+## 📝 License
+
+This project is licensed by Microverse and the Odin Project
+
+## Credits
+
+Photos from Vlada Karpovich at Pexels
+Video created by Daisy Anderson at Pexels
+[Alexey Savitskiy](<https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App)>) for the design on [behance](<https://www.behance.net/gallery/37706679/Circle-(Landing-page-Dashboard-Mobile-App)>)
